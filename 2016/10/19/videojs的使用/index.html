@@ -4,56 +4,35 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>正则表达式 | 夏祥云的博客</title>
+    <title>videojs的使用 | 夏祥云的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Xiangyun-Xia">
     
 
     
-    <meta name="description" content="正则应用场景
-字符串格式验证
-提取符合规则的的子串
-替换匹配的内容
+    <meta name="description" content="videojs是一款视频播放器，可以播放多种格式，mp4、m3u8、 webm、ogg等。
 
-js中正则相关API正则API
-test() 检测字符串是否含有与正则表达式匹配的文本
-exec() 从字符串中获取与正则表达式匹配的文本
+初始化123videojs(&quot;example_video_1&quot;, &amp;#123;&amp;#125;, function()&amp;#123;　　  //video.js初始化完成后执行&amp;#125;);
 
-字符串API
-search()返回第一个与正则相匹配的子串的起始位置。如果没有找到任何匹配的子串，则返回-1。
-split()返回分割后的数组;参数一：分割符；参数二：返回数组的长度限制">
+video标签的class中的”video-js” 是videojs全屏和字幕等功能需要的基础类，vjs-defa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="正则表达式">
-<meta property="og:url" content="http://yoursite.com/2016/03/06/正则表达式/index.html">
+<meta property="og:title" content="videojs的使用">
+<meta property="og:url" content="http://yoursite.com/2016/10/19/videojs的使用/index.html">
 <meta property="og:site_name" content="夏祥云的博客">
-<meta property="og:description" content="正则应用场景
-字符串格式验证
-提取符合规则的的子串
-替换匹配的内容
+<meta property="og:description" content="videojs是一款视频播放器，可以播放多种格式，mp4、m3u8、 webm、ogg等。
 
-js中正则相关API正则API
-test() 检测字符串是否含有与正则表达式匹配的文本
-exec() 从字符串中获取与正则表达式匹配的文本
+初始化123videojs(&quot;example_video_1&quot;, &amp;#123;&amp;#125;, function()&amp;#123;　　  //video.js初始化完成后执行&amp;#125;);
 
-字符串API
-search()返回第一个与正则相匹配的子串的起始位置。如果没有找到任何匹配的子串，则返回-1。
-split()返回分割后的数组;参数一：分割符；参数二：返回数组的长度限制">
-<meta property="og:updated_time" content="2017-04-15T07:17:33.024Z">
+video标签的class中的”video-js” 是videojs全屏和字幕等功能需要的基础类，vjs-defa">
+<meta property="og:updated_time" content="2017-04-15T09:35:48.932Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="正则表达式">
-<meta name="twitter:description" content="正则应用场景
-字符串格式验证
-提取符合规则的的子串
-替换匹配的内容
+<meta name="twitter:title" content="videojs的使用">
+<meta name="twitter:description" content="videojs是一款视频播放器，可以播放多种格式，mp4、m3u8、 webm、ogg等。
 
-js中正则相关API正则API
-test() 检测字符串是否含有与正则表达式匹配的文本
-exec() 从字符串中获取与正则表达式匹配的文本
+初始化123videojs(&quot;example_video_1&quot;, &amp;#123;&amp;#125;, function()&amp;#123;　　  //video.js初始化完成后执行&amp;#125;);
 
-字符串API
-search()返回第一个与正则相匹配的子串的起始位置。如果没有找到任何匹配的子串，则返回-1。
-split()返回分割后的数组;参数一：分割符；参数二：返回数组的长度限制">
+video标签的class中的”video-js” 是videojs全屏和字幕等功能需要的基础类，vjs-defa">
 
     
     <link rel="alternative" href="/atom.xml" title="夏祥云的博客" type="application/atom+xml">
@@ -114,14 +93,14 @@ split()返回分割后的数组;参数一：分割符；参数二：返回数组
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/06/正则表达式/" title="正则表达式" itemprop="url">正则表达式</a>
+      <a href="/2016/10/19/videojs的使用/" title="videojs的使用" itemprop="url">videojs的使用</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Xiangyun-Xia" target="_blank" itemprop="author">Xiangyun-Xia</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-05T16:00:00.000Z" itemprop="datePublished"> 发表于 2016-03-06</time>
+    <time datetime="2016-10-18T16:00:00.000Z" itemprop="datePublished"> 发表于 2016-10-19</time>
     
   </p>
 </header>
@@ -130,40 +109,50 @@ split()返回分割后的数组;参数一：分割符；参数二：返回数组
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#正则应用场景"><span class="toc-number">1.</span> <span class="toc-text">正则应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js中正则相关API"><span class="toc-number">2.</span> <span class="toc-text">js中正则相关API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正则API"><span class="toc-number">2.1.</span> <span class="toc-text">正则API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串API"><span class="toc-number">2.2.</span> <span class="toc-text">字符串API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则常用规则"><span class="toc-number">3.</span> <span class="toc-text">正则常用规则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#元字符"><span class="toc-number">3.1.</span> <span class="toc-text">元字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转义字符"><span class="toc-number">3.2.</span> <span class="toc-text">转义字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#量词"><span class="toc-number">3.3.</span> <span class="toc-text">量词</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参数设置"><span class="toc-number">2.</span> <span class="toc-text">参数设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法"><span class="toc-number">3.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插件机制"><span class="toc-number">4.</span> <span class="toc-text">插件机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用videoJs-播放视频的代码如下"><span class="toc-number">5.</span> <span class="toc-text">用videoJs 播放视频的代码如下</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="正则应用场景"><a href="#正则应用场景" class="headerlink" title="正则应用场景"></a>正则应用场景</h2><ul>
-<li>字符串格式验证</li>
-<li>提取符合规则的的子串</li>
-<li>替换匹配的内容</li>
+		<blockquote>
+<p>videojs是一款视频播放器，可以播放多种格式，mp4、m3u8、 webm、ogg等。</p>
+</blockquote>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">videojs(<span class="string">"example_video_1"</span>, &#123;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">　　  <span class="comment">//video.js初始化完成后执行</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li>video标签的class中的”video-js” 是videojs全屏和字幕等功能需要的基础类，vjs-default-skin是vidojs界面默认的皮肤，vjs-big-play-centered是播放按钮居中，而默认的是在左上角的。</li>
 </ul>
-<h2 id="js中正则相关API"><a href="#js中正则相关API" class="headerlink" title="js中正则相关API"></a>js中正则相关API</h2><h3 id="正则API"><a href="#正则API" class="headerlink" title="正则API"></a>正则API</h3><ul>
-<li>test() 检测字符串是否含有与正则表达式匹配的文本</li>
-<li>exec() 从字符串中获取与正则表达式匹配的文本</li>
+<h3 id="参数设置"><a href="#参数设置" class="headerlink" title="参数设置"></a>参数设置</h3><ul>
+<li><p>autoplay：</p>
+<p>该属性使video会在页面加载完毕后立即播放，而IOS设备屏蔽了这个属性。</p>
+</li>
 </ul>
-<h3 id="字符串API"><a href="#字符串API" class="headerlink" title="字符串API"></a>字符串API</h3><ul>
-<li>search()返回第一个与正则相匹配的子串的起始位置。如果没有找到任何匹配的子串，则返回-1。</li>
-<li>split()返回分割后的数组;参数一：分割符；参数二：返回数组的长度限制</li>
-<li>match()返回存放匹配结果的数组(分为全局匹配和非全局匹配)</li>
-<li>replace()返回替换后的新字符串</li>
+<ul>
+<li><p>preload：</p>
+<p>autoplay属性会屏蔽掉preload属性，没有autoplay属性时：<br>当preload值为auto时，页面加载时即加载媒体，但是苹果移动设备会忽略该属性以保护带宽；<br>当preload值为metadata时，只加载一些关于视频的元数据信息，如持续时间，媒体尺寸等等。</p>
+</li>
+<li><p>“poster”: “./img/tian.gif”，视频播放之前的图  就像海报类似的</p>
+</li>
+<li><p>window.HELP_IMPROVE_VIDEOJS = false; 禁止默认的GA统计</p>
+<p>window.VIDEOJS_NO_BASE_THEME = false; 禁止默认的皮肤，但是需要手动添加</p>
+</li>
 </ul>
-<h2 id="正则常用规则"><a href="#正则常用规则" class="headerlink" title="正则常用规则"></a>正则常用规则</h2><h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><ul>
-<li>常用元字符：\d \D \s \S \b \B \w \W</li>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>play() 视频播放</li>
+<li>pause() 视频暂停</li>
+<li>ended() 视频播放结束</li>
+<li>player.currentTime()  //player 是播放器   currentTime 是获取当前的播放时间</li>
+<li>player.duration()  视频结束的时候 duration获取视频的持续时间 也就是 视频总的时间</li>
 </ul>
-<h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h3><ul>
-<li>正则需要转义字符：’$’, ‘(‘, ‘)’, ‘*’, ‘+’, ‘.’, ‘[‘, ‘]’, ‘?’, ‘\‘, ‘^’, ‘{‘, ‘}’, ‘|’</li>
-<li>^ $</li>
+<h3 id="插件机制"><a href="#插件机制" class="headerlink" title="插件机制"></a>插件机制</h3><ul>
+<li><p>声明插件函数 function Fun(option){}</p>
+</li>
+<li><p>注册为一个插件 videojs.plugin(‘Fun’,Fun)</p>
+</li>
+<li><p>使用插件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">动态创建的video在初始化videojs时调用插件，即videojs(<span class="string">'id'</span>,&#123;<span class="attr">plugins</span>:&#123;<span class="attr">Fun</span>:option&#125;&#125;)</div><div class="line">非动态创建的video初始化了的videojs对象可以直接调用，即videojs.Fun(option)</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<h3 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h3><ul>
-<li><code>?</code>：规定前面的元素或组合项出现零次或一次。例如，“zo?”可以匹配z或zo，可以匹配“zoo”中的zo部分。但不能匹配整个“zoo”。 ?等效于{0,1} 。 </li>
-<li><code>+</code>：规定前面的元素或组合项必须出现一次或连续多次。例如，“zo+”与“zo”和“zoo”匹配，但与“z”不匹配。+等效于{1,} 。</li>
-<li><code>*</code>：规定前面的元素或组合项可以出现连续多次或零次。例如，“zo<em>”与“z”和“zoo”都能匹配。 </em>等效于{0,} </li>
-<li><code>{n}</code>：规定前面的元素或组合项连续出现n次。n为非负整数。例如，“0{2}”不能与“Bob”中的o匹配，但可以与“food”中的两个o匹配，也可以与“fooood”中的任意两个连续的o匹配。</li>
-<li><code>{n,m}</code>：规定前面的元素或组合项至少连续出现n次，最多连续出现m次。例如，“o{1,3}”可匹配“food”中的两个o，又可以匹配“foood”中的3个连续o。</li>
-<li><code>{n,}</code>：规定前面的元素或组合项至少连续出现n次。n为非负整数。例如，“o{2,}”不能与“Bob”中的o匹配，但可以与“fooood”中的所有o匹配。</li>
-</ul>
+<h3 id="用videoJs-播放视频的代码如下"><a href="#用videoJs-播放视频的代码如下" class="headerlink" title="用videoJs 播放视频的代码如下"></a>用videoJs 播放视频的代码如下</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>videoJs<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"./js/video-js.css"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./js/video.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./js/videojs-contrib-hls.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  </div><div class="line">    <span class="tag">&lt;<span class="name">section</span> <span class="attr">id</span>=<span class="string">"videoPlayer"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">video</span> <span class="attr">id</span>=<span class="string">"example-video"</span> <span class="attr">width</span>=<span class="string">"600"</span> <span class="attr">height</span>=<span class="string">"300"</span> <span class="attr">class</span>=<span class="string">"video-js vjs-default-skin vjs-big-play-centered"</span> <span class="attr">poster</span>=<span class="string">""</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">source</span></span></div><div class="line">             <span class="attr">src</span>=<span class="string">"./video/134977E9-cn-600k.m3u8"</span></div><div class="line">             <span class="attr">type</span>=<span class="string">"application/x-mpegURL"</span> <span class="attr">id</span>=<span class="string">"target"</span>&gt;</div><div class="line">        <span class="tag">&lt;/<span class="name">video</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;/<span class="name">section</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="keyword">var</span> player = videojs(<span class="string">'example-video'</span>, &#123;<span class="string">"poster"</span>: <span class="string">""</span>,<span class="string">"controls"</span>: <span class="string">"true"</span>&#125;, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">this</span>.on(<span class="string">'play'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'正在播放'</span>);</div><div class="line">          &#125;); </div><div class="line">         <span class="comment">//暂停--播放完毕后也会暂停</span></div><div class="line">          <span class="keyword">this</span>.on(<span class="string">'pause'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                       <span class="built_in">console</span>.log(<span class="string">"暂停中"</span>)</div><div class="line">                  &#125;); </div><div class="line">          <span class="comment">// 结束</span></div><div class="line">          <span class="keyword">this</span>.on(<span class="string">'ended'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="string">'结束'</span>);</div><div class="line">          &#125;)</div><div class="line">    &#125;);</div><div class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  </div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>本文参考：<a href="http://www.cnblogs.com/wangwei-exits/p/6526490.html" target="_blank" rel="external">videoJs 使用</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -171,13 +160,13 @@ split()返回分割后的数组;参数一：分割符；参数二：返回数组
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/开发/">开发</a>
+  <a class="article-category-link" href="/categories/工具/">工具</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/regexp/">regexp</a>
+  <span></span> <a href="/tags/videojs/">videojs</a>
   </div>
 
 </div>
@@ -186,7 +175,7 @@ split()返回分割后的数组;参数一：分割符；参数二：返回数组
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/03/06/正则表达式/" data-title="正则表达式 | 夏祥云的博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/10/19/videojs的使用/" data-title="videojs的使用 | 夏祥云的博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -199,19 +188,11 @@ split()返回分割后的数组;参数一：分割符；参数二：返回数组
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/03/27/面向对象基础/" title="面向对象基础">
-  <strong>上一篇：</strong><br/>
-  <span>
-  面向对象基础</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/01/22/Canvas/"  title="Canvas">
+<a href="/2016/09/05/Bootstrap学习笔记/"  title="Bootstrap学习笔记">
  <strong>下一篇：</strong><br/> 
- <span>Canvas
+ <span>Bootstrap学习笔记
 </span>
 </a>
 </div>
@@ -220,7 +201,7 @@ split()返回分割后的数组;参数一：分割符；参数二：返回数组
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/03/06/正则表达式/" data-title="正则表达式" data-url="http://yoursite.com/2016/03/06/正则表达式/"></div>
+	<div class="ds-thread" data-thread-key="2016/10/19/videojs的使用/" data-title="videojs的使用" data-url="http://yoursite.com/2016/10/19/videojs的使用/"></div>
 </section>
 
 
@@ -230,7 +211,7 @@ split()返回分割后的数组;参数一：分割符；参数二：返回数组
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#正则应用场景"><span class="toc-number">1.</span> <span class="toc-text">正则应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js中正则相关API"><span class="toc-number">2.</span> <span class="toc-text">js中正则相关API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正则API"><span class="toc-number">2.1.</span> <span class="toc-text">正则API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串API"><span class="toc-number">2.2.</span> <span class="toc-text">字符串API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则常用规则"><span class="toc-number">3.</span> <span class="toc-text">正则常用规则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#元字符"><span class="toc-number">3.1.</span> <span class="toc-text">元字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转义字符"><span class="toc-number">3.2.</span> <span class="toc-text">转义字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#量词"><span class="toc-number">3.3.</span> <span class="toc-text">量词</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#初始化"><span class="toc-number">1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参数设置"><span class="toc-number">2.</span> <span class="toc-text">参数设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法"><span class="toc-number">3.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#插件机制"><span class="toc-number">4.</span> <span class="toc-text">插件机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用videoJs-播放视频的代码如下"><span class="toc-number">5.</span> <span class="toc-text">用videoJs 播放视频的代码如下</span></a></li></ol>
  
   </div>
 
