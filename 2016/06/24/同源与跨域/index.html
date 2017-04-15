@@ -4,56 +4,104 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>正则表达式 | 夏祥云的博客</title>
+    <title>同源与跨域 | 夏祥云的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Xiangyun-Xia">
     
 
     
-    <meta name="description" content="正则应用场景
-字符串格式验证
-提取符合规则的的子串
-替换匹配的内容
+    <meta name="description" content="同源
+同源策略是浏览器的一种安全策略，所谓同源是指，域名，协议，端口完全相同。
 
-js中正则相关API正则API
-test() 检测字符串是否含有与正则表达式匹配的文本
-exec() 从字符串中获取与正则表达式匹配的文本
+跨域
+不同源则跨域。
 
-字符串API
-search()返回第一个与正则相匹配的子串的起始位置。如果没有找到任何匹配的子串，则返回-1。
-split()返回分割后的数组;参数一：分割符；参数二：返回数组的长度限制">
+例如http://www.example.com/
+
+
+
+网址
+是否同源
+解释
+
+
+
+
+http://api.example.com/detail.html
+不同源
+域名不同
+
+
+https://www.example.com/deail.html
+不同源
+协议不同
+
+
+http://www.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="正则表达式">
-<meta property="og:url" content="http://yoursite.com/2016/03/06/正则表达式/index.html">
+<meta property="og:title" content="同源与跨域">
+<meta property="og:url" content="http://yoursite.com/2016/06/24/同源与跨域/index.html">
 <meta property="og:site_name" content="夏祥云的博客">
-<meta property="og:description" content="正则应用场景
-字符串格式验证
-提取符合规则的的子串
-替换匹配的内容
+<meta property="og:description" content="同源
+同源策略是浏览器的一种安全策略，所谓同源是指，域名，协议，端口完全相同。
 
-js中正则相关API正则API
-test() 检测字符串是否含有与正则表达式匹配的文本
-exec() 从字符串中获取与正则表达式匹配的文本
+跨域
+不同源则跨域。
 
-字符串API
-search()返回第一个与正则相匹配的子串的起始位置。如果没有找到任何匹配的子串，则返回-1。
-split()返回分割后的数组;参数一：分割符；参数二：返回数组的长度限制">
-<meta property="og:updated_time" content="2017-04-15T07:17:33.024Z">
+例如http://www.example.com/
+
+
+
+网址
+是否同源
+解释
+
+
+
+
+http://api.example.com/detail.html
+不同源
+域名不同
+
+
+https://www.example.com/deail.html
+不同源
+协议不同
+
+
+http://www.">
+<meta property="og:updated_time" content="2017-04-15T08:39:30.681Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="正则表达式">
-<meta name="twitter:description" content="正则应用场景
-字符串格式验证
-提取符合规则的的子串
-替换匹配的内容
+<meta name="twitter:title" content="同源与跨域">
+<meta name="twitter:description" content="同源
+同源策略是浏览器的一种安全策略，所谓同源是指，域名，协议，端口完全相同。
 
-js中正则相关API正则API
-test() 检测字符串是否含有与正则表达式匹配的文本
-exec() 从字符串中获取与正则表达式匹配的文本
+跨域
+不同源则跨域。
 
-字符串API
-search()返回第一个与正则相匹配的子串的起始位置。如果没有找到任何匹配的子串，则返回-1。
-split()返回分割后的数组;参数一：分割符；参数二：返回数组的长度限制">
+例如http://www.example.com/
+
+
+
+网址
+是否同源
+解释
+
+
+
+
+http://api.example.com/detail.html
+不同源
+域名不同
+
+
+https://www.example.com/deail.html
+不同源
+协议不同
+
+
+http://www.">
 
     
     <link rel="alternative" href="/atom.xml" title="夏祥云的博客" type="application/atom+xml">
@@ -114,14 +162,14 @@ split()返回分割后的数组;参数一：分割符；参数二：返回数组
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/06/正则表达式/" title="正则表达式" itemprop="url">正则表达式</a>
+      <a href="/2016/06/24/同源与跨域/" title="同源与跨域" itemprop="url">同源与跨域</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Xiangyun-Xia" target="_blank" itemprop="author">Xiangyun-Xia</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-05T16:00:00.000Z" itemprop="datePublished"> 发表于 2016-03-06</time>
+    <time datetime="2016-06-23T16:00:00.000Z" itemprop="datePublished"> 发表于 2016-06-24</time>
     
   </p>
 </header>
@@ -130,39 +178,94 @@ split()返回分割后的数组;参数一：分割符；参数二：返回数组
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#正则应用场景"><span class="toc-number">1.</span> <span class="toc-text">正则应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js中正则相关API"><span class="toc-number">2.</span> <span class="toc-text">js中正则相关API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正则API"><span class="toc-number">2.1.</span> <span class="toc-text">正则API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串API"><span class="toc-number">2.2.</span> <span class="toc-text">字符串API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则常用规则"><span class="toc-number">3.</span> <span class="toc-text">正则常用规则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#元字符"><span class="toc-number">3.1.</span> <span class="toc-text">元字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转义字符"><span class="toc-number">3.2.</span> <span class="toc-text">转义字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#量词"><span class="toc-number">3.3.</span> <span class="toc-text">量词</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#同源"><span class="toc-number">1.</span> <span class="toc-text">同源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#跨域"><span class="toc-number">2.</span> <span class="toc-text">跨域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#跨域方案"><span class="toc-number">3.</span> <span class="toc-text">跨域方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JSONP"><span class="toc-number">4.</span> <span class="toc-text">JSONP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jQuery中的JSONP"><span class="toc-number">5.</span> <span class="toc-text">jQuery中的JSONP</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="正则应用场景"><a href="#正则应用场景" class="headerlink" title="正则应用场景"></a>正则应用场景</h2><ul>
-<li>字符串格式验证</li>
-<li>提取符合规则的的子串</li>
-<li>替换匹配的内容</li>
+		<h4 id="同源"><a href="#同源" class="headerlink" title="同源"></a>同源</h4><blockquote>
+<p>同源策略是浏览器的一种安全策略，所谓同源是指，域名，协议，端口完全相同。</p>
+</blockquote>
+<h4 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h4><blockquote>
+<p>不同源则跨域。</p>
+</blockquote>
+<p>例如<a href="http://www.example.com/" target="_blank" rel="external">http://www.example.com/</a></p>
+<table>
+<thead>
+<tr>
+<th>网址</th>
+<th>是否同源</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://api.example.com/detail.html" target="_blank" rel="external">http://api.example.com/detail.html</a></td>
+<td>不同源</td>
+<td>域名不同</td>
+</tr>
+<tr>
+<td><a href="https://www.example.com/deail.html" target="_blank" rel="external">https://www.example.com/deail.html</a></td>
+<td>不同源</td>
+<td>协议不同</td>
+</tr>
+<tr>
+<td><a href="http://www.example.com:8080/detatil.html" target="_blank" rel="external">http://www.example.com:8080/detatil.html</a></td>
+<td>不同源</td>
+<td>端口不同</td>
+</tr>
+<tr>
+<td><a href="http://api.example.com:8080/detail.html" target="_blank" rel="external">http://api.example.com:8080/detail.html</a></td>
+<td>不同源</td>
+<td>域名、端口不同</td>
+</tr>
+<tr>
+<td><a href="https://api.example.com/detail.html" target="_blank" rel="external">https://api.example.com/detail.html</a></td>
+<td>不同源</td>
+<td>协议、域名不同</td>
+</tr>
+<tr>
+<td><a href="https://www.example.com:8080/detail.html" target="_blank" rel="external">https://www.example.com:8080/detail.html</a></td>
+<td>不同源</td>
+<td>端口、协议不同</td>
+</tr>
+<tr>
+<td><a href="http://www.example.com/detail/index.html" target="_blank" rel="external">http://www.example.com/detail/index.html</a></td>
+<td>同源</td>
+<td>只是目录不同</td>
+</tr>
+</tbody>
+</table>
+<h4 id="跨域方案"><a href="#跨域方案" class="headerlink" title="跨域方案"></a>跨域方案</h4><ol>
+<li>顶级域名相同的可以通过domain.name来解决，即同时设置 domain.name = 顶级域名（如example.com）</li>
+<li>document.domain + iframe</li>
+<li>window.name + iframe</li>
+<li>location.hash + iframe</li>
+<li>window.postMessage()</li>
+</ol>
+<h4 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h4><blockquote>
+<p>JSON with Padding</p>
+</blockquote>
+<ul>
+<li><p>原理剖析</p>
+<p>其本质是利用了<code>&lt;script src=&quot;&quot;&gt;&lt;/script&gt;</code>标签具有可跨域的特性，由服务端返回一个预先定义好的Javascript函数的调用，并且将服务器数据以该函数参数的形式传递过来，此方法需要前后端配合完成。</p>
+<ul>
+<li><p>文件后缀并不能代表什么，关建我们要看服务器返回的内容，比如css.php</p>
+<p>这时返回的内容为 <code>echo &#39;body {background:color}&#39;</code>我们可以通过<code>content-type:text/css</code>来指定浏览器该如何解析，返回的内容</p>
+</li>
+<li><p>同样我们也可以js文件以<code>.php</code>结尾，比如<code>js.php</code> 这时我们可以指定<code>Content-Type: text/javascript</code>可告知浏览器要以javascript来执行我们返回的内容，如果返回的是一个javascript的一个函数调用，那么在这个函数调用过程中可以将跨域请求来的数据以“实参”的传递过来，并且这个实参一般是JSON格式的</p>
+</li>
+<li><p>只能以GET方式请求</p>
+</li>
 </ul>
-<h2 id="js中正则相关API"><a href="#js中正则相关API" class="headerlink" title="js中正则相关API"></a>js中正则相关API</h2><h3 id="正则API"><a href="#正则API" class="headerlink" title="正则API"></a>正则API</h3><ul>
-<li>test() 检测字符串是否含有与正则表达式匹配的文本</li>
-<li>exec() 从字符串中获取与正则表达式匹配的文本</li>
+</li>
 </ul>
-<h3 id="字符串API"><a href="#字符串API" class="headerlink" title="字符串API"></a>字符串API</h3><ul>
-<li>search()返回第一个与正则相匹配的子串的起始位置。如果没有找到任何匹配的子串，则返回-1。</li>
-<li>split()返回分割后的数组;参数一：分割符；参数二：返回数组的长度限制</li>
-<li>match()返回存放匹配结果的数组(分为全局匹配和非全局匹配)</li>
-<li>replace()返回替换后的新字符串</li>
-</ul>
-<h2 id="正则常用规则"><a href="#正则常用规则" class="headerlink" title="正则常用规则"></a>正则常用规则</h2><h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><ul>
-<li>常用元字符：\d \D \s \S \b \B \w \W</li>
-</ul>
-<h3 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h3><ul>
-<li>正则需要转义字符：’$’, ‘(‘, ‘)’, ‘*’, ‘+’, ‘.’, ‘[‘, ‘]’, ‘?’, ‘\‘, ‘^’, ‘{‘, ‘}’, ‘|’</li>
-<li>^ $</li>
-</ul>
-<h3 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h3><ul>
-<li><code>?</code>：规定前面的元素或组合项出现零次或一次。例如，“zo?”可以匹配z或zo，可以匹配“zoo”中的zo部分。但不能匹配整个“zoo”。 ?等效于{0,1} 。 </li>
-<li><code>+</code>：规定前面的元素或组合项必须出现一次或连续多次。例如，“zo+”与“zo”和“zoo”匹配，但与“z”不匹配。+等效于{1,} 。</li>
-<li><code>*</code>：规定前面的元素或组合项可以出现连续多次或零次。例如，“zo<em>”与“z”和“zoo”都能匹配。 </em>等效于{0,} </li>
-<li><code>{n}</code>：规定前面的元素或组合项连续出现n次。n为非负整数。例如，“0{2}”不能与“Bob”中的o匹配，但可以与“food”中的两个o匹配，也可以与“fooood”中的任意两个连续的o匹配。</li>
-<li><code>{n,m}</code>：规定前面的元素或组合项至少连续出现n次，最多连续出现m次。例如，“o{1,3}”可匹配“food”中的两个o，又可以匹配“foood”中的3个连续o。</li>
-<li><code>{n,}</code>：规定前面的元素或组合项至少连续出现n次。n为非负整数。例如，“o{2,}”不能与“Bob”中的o匹配，但可以与“fooood”中的所有o匹配。</li>
+<h4 id="jQuery中的JSONP"><a href="#jQuery中的JSONP" class="headerlink" title="jQuery中的JSONP"></a>jQuery中的JSONP</h4><blockquote>
+<p>jQuery 的<code>$.ajax()</code> 方法当中集成了JSONP的实现，可以非常方便的实现跨域数据的访问。</p>
+</blockquote>
+<ul>
+<li><code>dataType: &#39;jsonp&#39;</code> 设置dataType值为jsonp即开启跨域访问</li>
+<li>jsonp 可以指定服务端接收的参数的“key”值，默认为callback</li>
+<li>jsonpCallback 可以指定相应的回调函数，默认自动生成</li>
 </ul>
   
 	</div>
@@ -177,7 +280,7 @@ split()返回分割后的数组;参数一：分割符；参数二：返回数组
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/regexp/">regexp</a>
+  <span></span> <a href="/tags/跨域/">跨域</a>
   </div>
 
 </div>
@@ -186,7 +289,7 @@ split()返回分割后的数组;参数一：分割符；参数二：返回数组
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/03/06/正则表达式/" data-title="正则表达式 | 夏祥云的博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/06/24/同源与跨域/" data-title="同源与跨域 | 夏祥云的博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -199,19 +302,11 @@ split()返回分割后的数组;参数一：分割符；参数二：返回数组
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/03/27/面向对象基础/" title="面向对象基础">
-  <strong>上一篇：</strong><br/>
-  <span>
-  面向对象基础</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/01/22/Canvas/"  title="Canvas">
+<a href="/2016/06/18/AJAX编程/"  title="AJAX编程">
  <strong>下一篇：</strong><br/> 
- <span>Canvas
+ <span>AJAX编程
 </span>
 </a>
 </div>
@@ -220,7 +315,7 @@ split()返回分割后的数组;参数一：分割符；参数二：返回数组
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/03/06/正则表达式/" data-title="正则表达式" data-url="http://yoursite.com/2016/03/06/正则表达式/"></div>
+	<div class="ds-thread" data-thread-key="2016/06/24/同源与跨域/" data-title="同源与跨域" data-url="http://yoursite.com/2016/06/24/同源与跨域/"></div>
 </section>
 
 
@@ -230,7 +325,7 @@ split()返回分割后的数组;参数一：分割符；参数二：返回数组
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#正则应用场景"><span class="toc-number">1.</span> <span class="toc-text">正则应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js中正则相关API"><span class="toc-number">2.</span> <span class="toc-text">js中正则相关API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#正则API"><span class="toc-number">2.1.</span> <span class="toc-text">正则API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串API"><span class="toc-number">2.2.</span> <span class="toc-text">字符串API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#正则常用规则"><span class="toc-number">3.</span> <span class="toc-text">正则常用规则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#元字符"><span class="toc-number">3.1.</span> <span class="toc-text">元字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转义字符"><span class="toc-number">3.2.</span> <span class="toc-text">转义字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#量词"><span class="toc-number">3.3.</span> <span class="toc-text">量词</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#同源"><span class="toc-number">1.</span> <span class="toc-text">同源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#跨域"><span class="toc-number">2.</span> <span class="toc-text">跨域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#跨域方案"><span class="toc-number">3.</span> <span class="toc-text">跨域方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JSONP"><span class="toc-number">4.</span> <span class="toc-text">JSONP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#jQuery中的JSONP"><span class="toc-number">5.</span> <span class="toc-text">jQuery中的JSONP</span></a></li></ol>
  
   </div>
 
