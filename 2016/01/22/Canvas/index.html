@@ -1,0 +1,680 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>Canvas | 夏祥云的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Xiangyun-Xia">
+    
+
+    
+    <meta name="description" content="初识canvas
+canvas画布默认宽高是 300 * 150 px
+
+canvas宽高要使用canvas标签的属性设置，不能使用css设置
+
+绘图基本步骤：
+12345678910// 获取canvas画布var cas = document.getElementById(&apos;cas&apos;);// 获取绘图工具var ctx = cas.getContext(&apos;2d&apos;);// 设置绘图起始位置ctx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Canvas">
+<meta property="og:url" content="http://yoursite.com/2016/01/22/Canvas/index.html">
+<meta property="og:site_name" content="夏祥云的博客">
+<meta property="og:description" content="初识canvas
+canvas画布默认宽高是 300 * 150 px
+
+canvas宽高要使用canvas标签的属性设置，不能使用css设置
+
+绘图基本步骤：
+12345678910// 获取canvas画布var cas = document.getElementById(&apos;cas&apos;);// 获取绘图工具var ctx = cas.getContext(&apos;2d&apos;);// 设置绘图起始位置ctx">
+<meta property="og:updated_time" content="2017-04-15T07:14:34.612Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Canvas">
+<meta name="twitter:description" content="初识canvas
+canvas画布默认宽高是 300 * 150 px
+
+canvas宽高要使用canvas标签的属性设置，不能使用css设置
+
+绘图基本步骤：
+12345678910// 获取canvas画布var cas = document.getElementById(&apos;cas&apos;);// 获取绘图工具var ctx = cas.getContext(&apos;2d&apos;);// 设置绘图起始位置ctx">
+
+    
+    <link rel="alternative" href="/atom.xml" title="夏祥云的博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="夏祥云的博客" title="夏祥云的博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="夏祥云的博客">夏祥云的博客</a></h1>
+				<h2 class="blog-motto">Just For Fun ~</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="https://www.baidu.com/" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= null ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/01/22/Canvas/" title="Canvas" itemprop="url">Canvas</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Xiangyun-Xia" target="_blank" itemprop="author">Xiangyun-Xia</a>
+		
+  <p class="article-time">
+    <time datetime="2016-01-21T16:00:00.000Z" itemprop="datePublished"> 发表于 2016-01-22</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#初识canvas"><span class="toc-number">1.</span> <span class="toc-text">初识canvas</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制图形"><span class="toc-number">2.</span> <span class="toc-text">绘制图形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制图形样式设置"><span class="toc-number">3.</span> <span class="toc-text">绘制图形样式设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#渐变色的绘制"><span class="toc-number">4.</span> <span class="toc-text">渐变色的绘制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#save-和restore-的作用"><span class="toc-number">5.</span> <span class="toc-text">save()和restore()的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制矩形"><span class="toc-number">6.</span> <span class="toc-text">绘制矩形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制圆弧"><span class="toc-number">7.</span> <span class="toc-text">绘制圆弧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逐帧动画"><span class="toc-number">8.</span> <span class="toc-text">逐帧动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制文本"><span class="toc-number">9.</span> <span class="toc-text">绘制文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制图片"><span class="toc-number">10.</span> <span class="toc-text">绘制图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变换"><span class="toc-number">11.</span> <span class="toc-text">变换</span></a></li></ol>
+		
+		</div>
+		
+		<h3 id="初识canvas"><a href="#初识canvas" class="headerlink" title="初识canvas"></a>初识canvas</h3><ul>
+<li><p>canvas画布默认宽高是 300 * 150 px</p>
+</li>
+<li><p>canvas宽高要使用canvas标签的属性设置，不能使用css设置</p>
+</li>
+<li><p>绘图基本步骤：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取canvas画布</span></div><div class="line"><span class="keyword">var</span> cas = <span class="built_in">document</span>.getElementById(<span class="string">'cas'</span>);</div><div class="line"><span class="comment">// 获取绘图工具</span></div><div class="line"><span class="keyword">var</span> ctx = cas.getContext(<span class="string">'2d'</span>);</div><div class="line"><span class="comment">// 设置绘图起始位置</span></div><div class="line">ctx.moveTo(<span class="number">10</span>,<span class="number">10</span>);</div><div class="line"><span class="comment">// 绘制路径</span></div><div class="line">ctx.lineTo(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line"><span class="comment">// 描边</span></div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="绘制图形"><a href="#绘制图形" class="headerlink" title="绘制图形"></a>绘制图形</h3><ul>
+<li><p>路径的绘制</p>
+<ul>
+<li>描边 stroke()</li>
+<li>填充 fill()</li>
+<li>既描边又填充 stroke() 和 fill()</li>
+</ul>
+</li>
+<li><p>绘制曲线</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> cas = <span class="built_in">document</span>.getElementById(<span class="string">'cas'</span>);</div><div class="line">    <span class="keyword">var</span> ctx = cas.getContext(<span class="string">'2d'</span>);</div><div class="line">    </div><div class="line">    ctx.moveTo(<span class="number">0</span>,<span class="number">0</span>);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</div><div class="line">        <span class="keyword">var</span> x = i;</div><div class="line">        <span class="keyword">var</span> y = <span class="built_in">Math</span>.sqrt(x);</div><div class="line">        ctx.lineTo(x,y)</div><div class="line">    &#125;</div><div class="line">    ctx.stroke();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>手动闭合与closePath()闭合路径</p>
+<ul>
+<li>手动闭合，如果线的宽度比较大的话，会明显缺角，补上这个缺角可以多加一个点。</li>
+<li>closePath闭合路径可以省略最后一条线。</li>
+</ul>
+</li>
+<li><p>非零环绕原则：</p>
+<blockquote>
+<p>从闭合的区域中划出一条线，这条线经过的线条中，如果正向与反向的条数相等就不填充，否则就填充。</p>
+</blockquote>
+</li>
+<li><p>beginPath() 开启新的路径</p>
+</li>
+</ul>
+<h3 id="绘制图形样式设置"><a href="#绘制图形样式设置" class="headerlink" title="绘制图形样式设置"></a>绘制图形样式设置</h3><ul>
+<li>lineWidth 线宽，默认1px</li>
+<li>lineCap 线末端类型：(butt默认)、round、square </li>
+<li>lineJoin 相交线的拐点 miter(默认)、round、bevel</li>
+<li>strokeStyle 线的颜色</li>
+<li>fileStyle 填充颜色</li>
+<li>setLineDash() 设置虚线</li>
+<li>getLineDash() 获取虚线宽度集合</li>
+<li>lineDashOffset 设置虚线偏移量（负值向右偏移）</li>
+</ul>
+<h3 id="渐变色的绘制"><a href="#渐变色的绘制" class="headerlink" title="渐变色的绘制"></a>渐变色的绘制</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> cas = <span class="built_in">document</span>.getElementById(<span class="string">'cas'</span>);</div><div class="line">    <span class="keyword">var</span> ctx = cas.getContext(<span class="string">'2d'</span>);</div><div class="line"></div><div class="line">    ctx.lineWidth = <span class="number">30</span>;</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">255</span>; i++) &#123;</div><div class="line">        ctx.beginPath();</div><div class="line">        ctx.moveTo(<span class="number">100</span> + i,<span class="number">100</span>);	<span class="comment">//在beginPath的时候必须重新moveTo设置新的起点</span></div><div class="line">        ctx.strokeStyle = <span class="string">'rgb(0,'</span>+i+<span class="string">',0)'</span>;</div><div class="line">        ctx.lineTo(<span class="number">100</span> + i + <span class="number">1</span>,<span class="number">100</span>);</div><div class="line">        ctx.stroke();</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="save-和restore-的作用"><a href="#save-和restore-的作用" class="headerlink" title="save()和restore()的作用"></a>save()和restore()的作用</h3><ul>
+<li>save可以保存多个状态（用栈的方式存储：后进先出）</li>
+<li>restore可以恢复上次保存的状态</li>
+</ul>
+<h3 id="绘制矩形"><a href="#绘制矩形" class="headerlink" title="绘制矩形"></a>绘制矩形</h3><ul>
+<li><p>rect(x,y,w,h) 没有独立路径</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ctx.rect(<span class="number">100</span>,<span class="number">100</span>,<span class="number">200</span>,<span class="number">200</span>);</div><div class="line">ctx.stroke();</div></pre></td></tr></table></figure>
+</li>
+<li><p>strokeRect(x,y,w,h) 有独立路径，不需要显式的进行描边操作，不影响别的绘制</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.strokeRect(<span class="number">100</span>,<span class="number">100</span>,<span class="number">200</span>,<span class="number">200</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>fillRect(x,y,w,h) 有独立路径，不需要显式的进行填充操作，不影响别的绘制</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.fillRect(<span class="number">100</span>,<span class="number">100</span>,<span class="number">200</span>,<span class="number">100</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>clearRect(x,y,w,h) 擦除矩形区域</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.clearRect(<span class="number">0</span>,<span class="number">0</span>,cas.width,cas.height);	<span class="comment">//清空画布</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="绘制圆弧"><a href="#绘制圆弧" class="headerlink" title="绘制圆弧"></a>绘制圆弧</h3><ul>
+<li><p>弧度：1度等于<code>Math.PI/180</code>弧度。</p>
+</li>
+<li><p>角度转换为弧度：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">angleToRadian</span>(<span class="params">angle</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> angle * <span class="built_in">Math</span>.PI/<span class="number">180</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>arc()</p>
+<ul>
+<li>x 圆心横坐标</li>
+<li>y 圆心纵坐标</li>
+<li>r 半径</li>
+<li>startAngle 开始角度</li>
+<li>endAngle 结束角度</li>
+<li>anticlockwise 是否逆时针方向绘制（默认false表示顺时针；true表示逆时针）</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.arc(<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>,<span class="number">0</span>,angleToRadian(<span class="number">90</span>),<span class="literal">false</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="逐帧动画"><a href="#逐帧动画" class="headerlink" title="逐帧动画"></a>逐帧动画</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> cas = <span class="built_in">document</span>.getElementById(<span class="string">'cas'</span>);</div><div class="line">    <span class="keyword">var</span> ctx = cas.getContext(<span class="string">'2d'</span>);</div><div class="line">    </div><div class="line">    <span class="keyword">var</span> xspeed = <span class="number">5</span>;</div><div class="line">    <span class="keyword">var</span> yspeed = <span class="number">5</span>;</div><div class="line">    <span class="keyword">var</span> x = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> y = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> xDirection = <span class="number">1</span>;</div><div class="line">    <span class="keyword">var</span> yDirection = <span class="number">1</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 逐帧动画（序列帧动画）</span></div><div class="line">    setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">// 清空画布</span></div><div class="line">        ctx.clearRect(<span class="number">0</span>,<span class="number">0</span>,cas.width,cas.height);</div><div class="line">        <span class="keyword">if</span>(x &lt; <span class="number">0</span> || x &gt; cas.width - <span class="number">200</span>)&#123;</div><div class="line">            xDirection = -xDirection;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(y &lt; <span class="number">0</span> || y &gt; cas.height - <span class="number">100</span>)&#123;</div><div class="line">            yDirection = -yDirection;</div><div class="line">        &#125;</div><div class="line">        x = x + xspeed * xDirection;</div><div class="line">        y = y + yspeed * yDirection;</div><div class="line">        ctx.fillRect(x,y,<span class="number">200</span>,<span class="number">100</span>);</div><div class="line">    &#125;,<span class="number">100</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="绘制文本"><a href="#绘制文本" class="headerlink" title="绘制文本"></a>绘制文本</h3><ul>
+<li><p>font：设置字体样式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ctx.font = <span class="string">'20px 微软雅黑'</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>strokeText()</p>
+</li>
+<li><p>fillText(text,x,y,maxWidth)</p>
+<ul>
+<li>text 要绘制的文本</li>
+<li>x,y 文本绘制的坐标（文本左下角）</li>
+<li>maxWidth 设置文本最大宽度，可选参数</li>
+</ul>
+</li>
+<li><p>ctx.textAlign文本水平对齐方式，相对绘制坐标来说的</p>
+<ul>
+<li>left</li>
+<li>center</li>
+<li>right</li>
+<li>start 默认</li>
+<li>end</li>
+<li>direction属性css(rtl ltr) start和end于此相关<ul>
+<li>如果是ltr,start和left表现一致</li>
+<li>如果是rtl,start和right表现一致</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ctx.textBaseline 设置基线（垂直对齐方式 ）</p>
+<ul>
+<li>top 文本的基线处于文本的正上方，并且有一段距离</li>
+<li>middle 文本的基线处于文本的正中间</li>
+<li>bottom 文本的基线处于文本的证下发，并且有一段距离</li>
+<li>hanging 文本的基线处于文本的正上方，并且和文本粘合</li>
+<li>alphabetic 默认值，基线处于文本的下方，并且穿过文字</li>
+<li>ideographic 和bottom相似，但是不一样</li>
+</ul>
+</li>
+<li><p>measureText() 获取文本宽度obj.width</p>
+</li>
+</ul>
+<h3 id="绘制图片"><a href="#绘制图片" class="headerlink" title="绘制图片"></a>绘制图片</h3><ul>
+<li>三个参数drawImage(img,x,y)<ul>
+<li>img 图片对象、canvas对象、video对象</li>
+<li>x,y 图片绘制的左上角</li>
+</ul>
+</li>
+<li>五个参数drawImage(img,x,y,w,h)<ul>
+<li>img 图片对象、canvas对象、video对象</li>
+<li>x,y 图片绘制的左上角</li>
+<li>w,h 图片绘制尺寸设置(图片缩放，不是截取)</li>
+</ul>
+</li>
+<li>九个参数drawImage(img,x,y,w,h,x1,y1,w1,h1)<ul>
+<li>img 图片对象、canvas对象、video对象</li>
+<li>x,y,w,h 图片中的一个矩形区域</li>
+<li>x1,y1,w1,h1 画布中的一个矩形区域</li>
+</ul>
+</li>
+</ul>
+<h3 id="变换"><a href="#变换" class="headerlink" title="变换"></a>变换</h3><ul>
+<li>平移 移动画布的原点<ul>
+<li>translate(x,y) 参数表示移动目标点的坐标</li>
+</ul>
+</li>
+<li>旋转<ul>
+<li>scale(x,y) 参数表示宽高的缩放比例</li>
+</ul>
+</li>
+<li>缩放<ul>
+<li>rotate(angle) 参数表示旋转角度</li>
+</ul>
+</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/H5/">H5</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Canvas/">Canvas</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/01/22/Canvas/" data-title="Canvas | 夏祥云的博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/03/06/正则表达式/" title="正则表达式">
+  <strong>上一篇：</strong><br/>
+  <span>
+  正则表达式</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/01/10/git学习笔记/"  title="git学习笔记">
+ <strong>下一篇：</strong><br/> 
+ <span>git学习笔记
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/01/22/Canvas/" data-title="Canvas" data-url="http://yoursite.com/2016/01/22/Canvas/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#初识canvas"><span class="toc-number">1.</span> <span class="toc-text">初识canvas</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制图形"><span class="toc-number">2.</span> <span class="toc-text">绘制图形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制图形样式设置"><span class="toc-number">3.</span> <span class="toc-text">绘制图形样式设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#渐变色的绘制"><span class="toc-number">4.</span> <span class="toc-text">渐变色的绘制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#save-和restore-的作用"><span class="toc-number">5.</span> <span class="toc-text">save()和restore()的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制矩形"><span class="toc-number">6.</span> <span class="toc-text">绘制矩形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制圆弧"><span class="toc-number">7.</span> <span class="toc-text">绘制圆弧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逐帧动画"><span class="toc-number">8.</span> <span class="toc-text">逐帧动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制文本"><span class="toc-number">9.</span> <span class="toc-text">绘制文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制图片"><span class="toc-number">10.</span> <span class="toc-text">绘制图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变换"><span class="toc-number">11.</span> <span class="toc-text">变换</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/H5/" title="H5">H5<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/工具/" title="工具">工具<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/开发/" title="开发">开发<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/懒加载/" title="懒加载">懒加载<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Canvas/" title="Canvas">Canvas<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/shell和vi/" title="shell和vi">shell和vi<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/regexp/" title="regexp">regexp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/gulp/" title="gulp">gulp<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">2</span></li></ul>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 不懂产品的设计不是好码农 <br/>
+			Where amazing happens.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="Xiangyun-Xia">Xiangyun-Xia</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"祥云"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
