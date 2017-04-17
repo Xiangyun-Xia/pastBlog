@@ -1,0 +1,789 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>WEB前端开发规范文档 | 夏祥云的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Xiangyun-Xia">
+    
+
+    
+    <meta name="description" content="规范目的
+为提高团队协作效率， 便于后台人员添加功能及前端后期优化维护， 输出高质量的文档， 特制订此文档。 本规范文档一经确认， 前端开发人员必须按本文档规范进行前台页面开发。 本文档如有丌对戒者丌合适的地方请及时提出，经讨论决定后方可更改。
+
+基本准则
+符合 web 标准，语义化 html， 结构、表现、行为分离， 兼容性优良。 页面性能方面， 代码要求简洁明了有序， 尽可能的减小服务器负载，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WEB前端开发规范文档">
+<meta property="og:url" content="http://yoursite.com/2015/12/18/WEB前端开发规范文档/index.html">
+<meta property="og:site_name" content="夏祥云的博客">
+<meta property="og:description" content="规范目的
+为提高团队协作效率， 便于后台人员添加功能及前端后期优化维护， 输出高质量的文档， 特制订此文档。 本规范文档一经确认， 前端开发人员必须按本文档规范进行前台页面开发。 本文档如有丌对戒者丌合适的地方请及时提出，经讨论决定后方可更改。
+
+基本准则
+符合 web 标准，语义化 html， 结构、表现、行为分离， 兼容性优良。 页面性能方面， 代码要求简洁明了有序， 尽可能的减小服务器负载，">
+<meta property="og:updated_time" content="2017-04-17T02:40:26.502Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WEB前端开发规范文档">
+<meta name="twitter:description" content="规范目的
+为提高团队协作效率， 便于后台人员添加功能及前端后期优化维护， 输出高质量的文档， 特制订此文档。 本规范文档一经确认， 前端开发人员必须按本文档规范进行前台页面开发。 本文档如有丌对戒者丌合适的地方请及时提出，经讨论决定后方可更改。
+
+基本准则
+符合 web 标准，语义化 html， 结构、表现、行为分离， 兼容性优良。 页面性能方面， 代码要求简洁明了有序， 尽可能的减小服务器负载，">
+
+    
+    <link rel="alternative" href="/atom.xml" title="夏祥云的博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favico.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="夏祥云的博客" title="夏祥云的博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="夏祥云的博客">夏祥云的博客</a></h1>
+				<h2 class="blog-motto">Just For Fun ~</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="https://www.baidu.com/" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= null ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/12/18/WEB前端开发规范文档/" title="WEB前端开发规范文档" itemprop="url">WEB前端开发规范文档</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Xiangyun-Xia" target="_blank" itemprop="author">Xiangyun-Xia</a>
+		
+  <p class="article-time">
+    <time datetime="2015-12-17T16:00:00.000Z" itemprop="datePublished"> 发表于 2015-12-18</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#规范目的"><span class="toc-number">1.</span> <span class="toc-text">规范目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本准则"><span class="toc-number">2.</span> <span class="toc-text">基本准则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件规范"><span class="toc-number">3.</span> <span class="toc-text">文件规范</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#html书写规范"><span class="toc-number">3.1.</span> <span class="toc-text">html书写规范</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#css书写规范"><span class="toc-number">3.2.</span> <span class="toc-text">css书写规范</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JavaScript书写规范"><span class="toc-number">3.3.</span> <span class="toc-text">JavaScript书写规范</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#图片规范"><span class="toc-number">3.4.</span> <span class="toc-text">图片规范</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注释规范"><span class="toc-number">3.5.</span> <span class="toc-text">注释规范</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#测试约定"><span class="toc-number">3.6.</span> <span class="toc-text">测试约定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其他规范"><span class="toc-number">3.7.</span> <span class="toc-text">其他规范</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h3 id="规范目的"><a href="#规范目的" class="headerlink" title="规范目的"></a>规范目的</h3><blockquote>
+<p>为提高团队协作效率， 便于后台人员添加功能及前端后期优化维护， 输出高质量的文档， 特制订此文档。 本规范文档一经确认， 前端开发人员必须按本文档规范进行前台页面开发。 本文档如有丌对戒者丌合适的地方请及时提出，经讨论决定后方可更改。</p>
+</blockquote>
+<h3 id="基本准则"><a href="#基本准则" class="headerlink" title="基本准则"></a>基本准则</h3><blockquote>
+<p>符合 web 标准，语义化 html， 结构、表现、行为分离， 兼容性优良。 页面性能方面， 代码要求简洁明了有序， 尽可能的减小服务器负载， 保证最快的解析速度。</p>
+</blockquote>
+<h3 id="文件规范"><a href="#文件规范" class="headerlink" title="文件规范"></a>文件规范</h3><ol>
+<li>html、css、javascript、images 文件均归档至《WEB前端开发规范文档》约定的目录中。</li>
+</ol>
+<ol>
+<li>html文件命名: 英文命名，后缀为“.html”。 同时将对应界面稿放于同目录中，若界面稿命名为中文，请重命名不html 文件同名，以方便后端添加功能时查找对应页面。</li>
+</ol>
+<ol>
+<li>css 文件命名 英文命名，共用： base.css，首页： homepage.css，子页subpage.css，框架样式：</li>
+</ol>
+<p>layoout.css ，其它页面依实际模块需求命名。</p>
+<ol>
+<li>Javascript文件命名：英文命名，共用 common.js， 其他依实际模块需求命名。</li>
+</ol>
+<h4 id="html书写规范"><a href="#html书写规范" class="headerlink" title="html书写规范"></a>html书写规范</h4><ol>
+<li>代码根据元素嵌套关系采用 TAB 键进行缩进，以减少代码字符量。</li>
+</ol>
+<ol>
+<li>所有编码均遵循 xhtml 标准，所有标签必须闭合，包括 br (<br>) 、hr(<hr>)等；属性值必须用双引号包括。</li>
+</ol>
+<ol>
+<li>DTD type 采用相对稳定的过滤类型（Transitional）:</li>
+</ol>
+<p>&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd”&gt;" target="_blank" rel="external">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd”&gt;</a></p>
+<ol>
+<li>编码统一为：<meta http-equiv="”Content-Type”" content="”text/html;" charset="utf-8”"> 。</li>
+</ol>
+<ol>
+<li>元标记的顺序是 meta 放在 title 的前面。</li>
+</ol>
+<ol>
+<li>meta 标签 http-equiv 属性的顺序：</li>
+</ol>
+<p>Content-Type    -&gt;    Content-Language    -&gt;    ROBOTS    -&gt;    keywords    -&gt;    descrition</p>
+<ol>
+<li>非特殊情冴下样式文件不 JavaScript 文件必须置于<head>…</head>之间； 内联 JavaScript 文件必须放在页面底部。</li>
+</ol>
+<ol>
+<li>引入 JS 库文件，文件名须包含库名称及版本号及是否为压缩版，比如 <strong>jquery-1.4.1.min.js</strong>； 引入揑件，文件名格式为库名称+揑件名称，比如 <strong>jQuery.cookie.js</strong> 。</li>
+</ol>
+<ol>
+<li>充分利用无兼容性问题的 html 自身标签，比如 span、em、strong、optgroup、label 等等。</li>
+</ol>
+<ol>
+<li><p>语义化 html， 如 标题根据重要性用 h*(同一页面只能有一个 h1)， 段落标记用 p， 列表用 ul，内联元素中丌可嵌套块级元素。</p>
+</li>
+<li><p>尽可能减少 div 嵌套，如：</p>
+</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">”box”</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">”welcome”</span>&gt;</span>欢迎访问官方网站，您现在的积分是：</div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">”</span> <span class="attr">integration</span>”&gt;</span>9527 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>完全可以用以下代码替代:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">”box”</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span>欢迎访问千鼎互联官方网站, 您现在的积分是<span class="tag">&lt;<span class="name">span</span>&gt;</span>9527<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt; /<span class="attr">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<ol>
+<li>书写链接地址时，必须避免重定向，例如： href=”<a href="http://www.1000ding.com/”，即须在" target="_blank" rel="external">http://www.1000ding.com/”，即须在</a> URL 地址后面加上“/”。</li>
+</ol>
+<ol>
+<li>在页面中尽量避免使用 style 属性，即 style=”…”。</li>
+</ol>
+<ol>
+<li>必须为含有描述性表单元素（input 、textarea）添加 label, 如：</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span> 姓名: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">”text”</span> <span class="attr">id</span>=<span class="string">”name”</span> <span class="attr">name</span>=<span class="string">”name”</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>须写成:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt; <span class="attr">p</span>&gt;</span><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">”name”</span>&gt;</span>姓名: <span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt; <span class="attr">input</span> <span class="attr">type</span>=<span class="string">”text”</span> <span class="attr">id</span>=<span class="string">”name”</span> /&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
+<ol>
+<li>能以背景形式呈现的图片, 尽量写入 css 样式中。</li>
+</ol>
+<ol>
+<li>重要图片必须加上 alt 属性，给重要的元素和截断的元素加上 title 。</li>
+</ol>
+<ol>
+<li>给区块代码及重要功能（比如循环）加上注释，方便后台添加功能 。</li>
+</ol>
+<ol>
+<li>特殊符号使用：尽可能使用代码替代，比如 &lt;( &lt; )、&gt;( &gt; )、空格(   )、»( » ) 等等。</li>
+</ol>
+<ol>
+<li>书写页面过程中，请考虑向后扩展性。</li>
+</ol>
+<ol>
+<li>class &amp; id 参见 css 书写规范。</li>
+</ol>
+<h4 id="css书写规范"><a href="#css书写规范" class="headerlink" title="css书写规范"></a>css书写规范</h4><ol>
+<li>编码统一为 utf-8。</li>
+</ol>
+<ol>
+<li>class 不 id 的使用： id 是唯一的并是父级的， class 是可以重复的并是子级的，所以 id 仅使用在大的模块上，</li>
+</ol>
+<p>class 可用在重复使用率高及子级中。</p>
+<ol>
+<li>为 JavaScript 预留钩子的命名， 请以 js_ 起始， 比如：js_hide， js_show 。</li>
+</ol>
+<ol>
+<li><p>class 不 id 命名： 大的框架统一采用“wrapper”、“header”、“footer”、“content”、“ sidebar” 。避免使用中文拼音， 尽量使用简易的单词组合（使用“-”连接，如“main-content”）；总之, 命名要语义化，简明化。</p>
+</li>
+<li><p>规避 class 不 id 命名（此条重要）：a． 通过从属写法规避，示例见 c。</p>
+</li>
+</ol>
+<p>b． 取父级元素 id/class 命名部分命名，示例见 c。</p>
+<p>c． a、b 两条，适用于在 2 中已建好框架的页面。如， 要在 2 中已建好框架的页面代码<code>&lt;div id=”mainnav”&gt;&lt;/div&gt;</code>中加入新的 div 元素。</p>
+<p>按 a 命名法则：<code>&lt;div id=”mainnav”&gt;&lt;div class=”firstnav”&gt;…&lt;/div&gt;&lt;/div&gt;</code> </p>
+<p>样式写法: #mainnav    .firstnav{…….}</p>
+<p>按 b 命名法则: <code>&lt;div id=”mainnav”&gt;&lt;div class=”main_firstnav”&gt;…&lt;/div&gt;&lt;/div&gt;</code></p>
+<p>样式写法: .main_firstnav{…….}</p>
+<ol>
+<li><p>css 属性书写顺序, 建议遵循 布尿定位属性–&gt;自身属性–&gt;文本属性–&gt;其他属性。此条可根据自身习惯书写，但尽量保证同类属性写在一起。属性列丼：布尿定位属性主要包括: margin，padding，float（包括 clear），position（相应的top、right、bottom、left），display，visibility，overflow 等；自身属性主要包括:width，height，background ，border 等； 文本属性主要包括：font，color，text-align，text-decoration，text-indent等； 其他属性包括： list-style(列表样式)，vertical-vlign，cursor，z-index(局叠顺序) ，zoom 等。我所列出的这些属性只是最常用到的， 并丌代表全部。</p>
+</li>
+<li><p>书写代码前，考虑并提高样式重复使用率。</p>
+</li>
+</ol>
+<ol>
+<li>充分利用 html 自身属性及样式继承原理减少代码量，比如：</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">”list”</span>&gt;</span><span class="tag">&lt;<span class="name">li</span>&gt;</span>这儿是标题列表<span class="tag">&lt;<span class="name">span</span>&gt;</span>2011-08-16<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>定义<code>ul.list li{position:relative}    ul.list li span{position:absolute; right:0}</code>即可实现日期</p>
+<p>屁右显示</p>
+<ol>
+<li><p>样式表中中文字体名，请务必转码成 unicode 码，以避免编码错误时乱码。</p>
+</li>
+<li><p>背景图片请尽可能使用 sprite 技术，减小 http 请求，考虑到多人协作开发，sprite 按模块制作。</p>
+</li>
+</ol>
+<ol>
+<li>使用 table 标签时(尽量避免使用 table 标签)，请丌要用 width、height、cellspacing、cellpadding 等</li>
+</ol>
+<p>table 属性直接定义表现，应尽可能的利用 table 自身私有属性分离结构不表现，如 thead、tr、th、td、tbody、tfoot、colgroup、scope (cellspaing 及 cellpadding 的 css 控制方法:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">table</span>&#123;<span class="attribute">border</span>:<span class="number">0</span>;<span class="attribute">margin</span>:<span class="number">0</span>;<span class="attribute">border-collapse</span>:collapse;&#125; <span class="selector-tag">table</span> <span class="selector-tag">th</span>, <span class="selector-tag">table</span> <span class="selector-tag">td</span>&#123;<span class="attribute">padding</span>:<span class="number">0</span>;&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li><p>用 png 图片做图片时， 要求图片格式为 png-8 格式，,若 png-8 实在影响图片质量戒其中有半透明效果， 请为 ie6单独定义背景：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod= crop, src=’img/bg.png’)</div></pre></td></tr></table></figure>
+</li>
+<li><p>减少使用影响性能的属性，比如 <code>position:absolute || float</code> 。</p>
+</li>
+</ol>
+<ol>
+<li>必须为大区块样式添加注释，小区块适量注释。</li>
+</ol>
+<ol>
+<li>代码缩进不格式：建议每个选择器样式单行书写并严格遵循在 7 中的 css 属性书写顺序。</li>
+</ol>
+<h4 id="JavaScript书写规范"><a href="#JavaScript书写规范" class="headerlink" title="JavaScript书写规范"></a>JavaScript书写规范</h4><ol>
+<li>文件编码统一为 utf-8，书写过程过，每行代码结束必须有分号。原则上所有功能均根据项目需求原生开发, 以避免网上 download 的代码造成的代码污染( 沉冗代码 戒 不现有代码冲突 … ) 。</li>
+</ol>
+<ol>
+<li>库引入： 原则上仅引入 jQuery 库， 若需引入第三方库，须不团队其他人员讨论决定。</li>
+</ol>
+<ol>
+<li>变量命名： 驼峰式命名， 原生 JavaScript 变量要求是纯英文字母，首字母须小写；jQuery 变量要求首字符为“_”，其他不原生 JavaScript 规则相同 。另, 要求变量集中声明， 避免全尿变量。</li>
+</ol>
+<ol>
+<li>类命名：首字母大写，驼峰式命名。</li>
+</ol>
+<ol>
+<li>函数命名：首字母小写驼峰式命名。</li>
+</ol>
+<ol>
+<li>命名语义化，尽可能利用英文单词戒其缩写。</li>
+</ol>
+<ol>
+<li>尽量避免使用存在兼容性及消耗资源的方法戒属性，比如 eval( ) &amp; innerText。</li>
+</ol>
+<ol>
+<li>后期优化中； JavaScript 非注释类中文字符须转换成 unicode 编码使用，以避免编码错误时乱码显示。</li>
+</ol>
+<ol>
+<li>代码结构明了，加适量注释，提高函数重用率。</li>
+</ol>
+<ol>
+<li>注重不 html 分离，减小 reflow，注重性能。</li>
+</ol>
+<h4 id="图片规范"><a href="#图片规范" class="headerlink" title="图片规范"></a>图片规范</h4><ol>
+<li>所有页面元素类图片均放入 images文件夹，测试用图片放于 images/demo 文件夹。</li>
+</ol>
+<ol>
+<li>图片格式仅限于 gif 、png 、jpg 。</li>
+</ol>
+<ol>
+<li>命名全部用小写英文字母不数字戒“_”的组合，其中丌得包含汉字、空格、特殊字符。尽量用易懂的词汇，便于团队其他成员理解。另，命名分头尾两部分，用下划线隔开，比如：btn_submit.gif 。</li>
+</ol>
+<ol>
+<li>在保证视觉效果的情冴下选择最小的图片格式不图片质量，以减少加载时间。</li>
+</ol>
+<ol>
+<li>尽量避免使用半透明的 png 图片(若使用, 请参考 css 规范相关说明)。</li>
+</ol>
+<ol>
+<li>运用 css sprite 技术集中小的背景图戒图标，减小页面 http 请求。但注意，请务必在对应的 sprite psd 源图中划参考线, 并保存至 images 目录下。</li>
+</ol>
+<h4 id="注释规范"><a href="#注释规范" class="headerlink" title="注释规范"></a>注释规范</h4><ol>
+<li>html 注释：</li>
+</ol>
+<p>注释格式： &lt;! – 这儿是注释 –&gt;， “–”只能在注释的始末位置，丌可置入注释文字区域。</p>
+<ol>
+<li>css 注释：</li>
+</ol>
+<p>注释格式： /<em> —- 这儿是注释 —- </em>/</p>
+<ol>
+<li>JavaScript 注释，单行注释使用 C++风格： // 这儿是单行注释</li>
+</ol>
+<p>多行注释使用 C 风格 /<em> 这儿有多行注释 </em>/</p>
+<h4 id="测试约定"><a href="#测试约定" class="headerlink" title="测试约定"></a>测试约定</h4><p>测试工具： 前期开发仅测试 FireFox 、 IE6 、 IE7 、 IE8 , 后期优化时加入 Chrome 、 Opera 。</p>
+<p>建议测试顺序：<strong>FireFox</strong> <strong>–&gt; IE8</strong> <strong>–&gt; IE7</strong> <strong>–&gt; IE6</strong> <strong>–&gt; Chrome–&gt; Opera</strong>，建议安装 firebug 及 IE Tab Plus 揑件 。</p>
+<p>浏览器兼容优先顺序 ：<strong>IE8</strong> <strong>–&gt; IE6</strong> <strong>–&gt; IE7</strong> <strong>–&gt; FireFox</strong> <strong>–&gt; Chrome</strong> <strong>–&gt; Opera</strong> 。</p>
+<h4 id="其他规范"><a href="#其他规范" class="headerlink" title="其他规范"></a>其他规范</h4><ol>
+<li>开发过程中严格按分工完成页面，以提高 css 复用率，避免重复开发。</li>
+</ol>
+<ol>
+<li>减小沉冗代码，书写所有人都可以看的懂的代码。简洁易懂是一种美德，为用户着想，为服务器着想。</li>
+</ol>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/文档/">文档</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/开发规范/">开发规范</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2015/12/18/WEB前端开发规范文档/" data-title="WEB前端开发规范文档 | 夏祥云的博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/01/08/shell和vi/" title="shell和vi">
+  <strong>上一篇：</strong><br/>
+  <span>
+  shell和vi</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/12/17/实现图片懒加载的两种方式/"  title="实现图片懒加载的两种方式">
+ <strong>下一篇：</strong><br/> 
+ <span>实现图片懒加载的两种方式
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2015/12/18/WEB前端开发规范文档/" data-title="WEB前端开发规范文档" data-url="http://yoursite.com/2015/12/18/WEB前端开发规范文档/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#规范目的"><span class="toc-number">1.</span> <span class="toc-text">规范目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本准则"><span class="toc-number">2.</span> <span class="toc-text">基本准则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件规范"><span class="toc-number">3.</span> <span class="toc-text">文件规范</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#html书写规范"><span class="toc-number">3.1.</span> <span class="toc-text">html书写规范</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#css书写规范"><span class="toc-number">3.2.</span> <span class="toc-text">css书写规范</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JavaScript书写规范"><span class="toc-number">3.3.</span> <span class="toc-text">JavaScript书写规范</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#图片规范"><span class="toc-number">3.4.</span> <span class="toc-text">图片规范</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注释规范"><span class="toc-number">3.5.</span> <span class="toc-text">注释规范</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#测试约定"><span class="toc-number">3.6.</span> <span class="toc-text">测试约定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其他规范"><span class="toc-number">3.7.</span> <span class="toc-text">其他规范</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/H5/" title="H5">H5<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/JS/" title="JS">JS<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/工具/" title="工具">工具<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/开发/" title="开发">开发<sup>10</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/文档/" title="文档">文档<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/框架/" title="框架">框架<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/面向对象/" title="面向对象">面向对象<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/shell和vi/" title="shell和vi">shell和vi<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Canvas/" title="Canvas">Canvas<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Cookies-Session/" title="Cookies&amp;Session">Cookies&amp;Session<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/angularjs/" title="angularjs">angularjs<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/requirejs/" title="requirejs">requirejs<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/AJAX/" title="AJAX">AJAX<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/跨域/" title="跨域">跨域<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/videojs/" title="videojs">videojs<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/懒加载/" title="懒加载">懒加载<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/regexp/" title="regexp">regexp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Bootstrap/" title="Bootstrap">Bootstrap<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/gulp/" title="gulp">gulp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/函数/" title="函数">函数<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">2</span></li></ul>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 不懂产品的设计不是好码农 <br/>
+			Where amazing happens.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="Xiangyun-Xia">Xiangyun-Xia</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"祥云"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
