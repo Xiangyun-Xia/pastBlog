@@ -1,0 +1,574 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>jQuery.extend()用法总结 | 夏祥云的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Xiangyun-Xia">
+    
+
+    
+    <meta name="description" content="jQuery.extend()源码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283// extend方法为jQuery对象和init对">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery.extend()用法总结">
+<meta property="og:url" content="http://yoursite.com/2016/09/13/jQuery.extend()用法总结/index.html">
+<meta property="og:site_name" content="夏祥云的博客">
+<meta property="og:description" content="jQuery.extend()源码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283// extend方法为jQuery对象和init对">
+<meta property="og:updated_time" content="2017-04-17T08:27:59.975Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery.extend()用法总结">
+<meta name="twitter:description" content="jQuery.extend()源码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283// extend方法为jQuery对象和init对">
+
+    
+    <link rel="alternative" href="/atom.xml" title="夏祥云的博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favico.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="夏祥云的博客" title="夏祥云的博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="夏祥云的博客">夏祥云的博客</a></h1>
+				<h2 class="blog-motto">Just For Fun ~</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="https://www.baidu.com/" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= null ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/09/13/jQuery.extend()用法总结/" title="jQuery.extend()用法总结" itemprop="url">jQuery.extend()用法总结</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Xiangyun-Xia" target="_blank" itemprop="author">Xiangyun-Xia</a>
+		
+  <p class="article-time">
+    <time datetime="2016-09-12T16:00:00.000Z" itemprop="datePublished"> 发表于 2016-09-13</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery-extend-源码"><span class="toc-number">1.</span> <span class="toc-text">jQuery.extend()源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#合并多个对象"><span class="toc-number">2.</span> <span class="toc-text">合并多个对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深度嵌套对象"><span class="toc-number">3.</span> <span class="toc-text">深度嵌套对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可以给jQuery添加静态方法"><span class="toc-number">4.</span> <span class="toc-text">可以给jQuery添加静态方法</span></a></li></ol>
+		
+		</div>
+		
+		<h3 id="jQuery-extend-源码"><a href="#jQuery-extend-源码" class="headerlink" title="jQuery.extend()源码"></a>jQuery.extend()源码</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// extend方法为jQuery对象和init对象的prototype扩展方法</span></div><div class="line"><span class="comment">// 同时具有独立的扩展普通对象的功能</span></div><div class="line">jQuery.extend = jQuery.fn.extend = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">　　<span class="comment">/*</span></div><div class="line">　　*target被扩展的对象</div><div class="line">　　*length参数的数量</div><div class="line">　　*deep是否深度操作</div><div class="line">　　*/</div><div class="line">　　<span class="keyword">var</span> options, name, src, copy, copyIsArray, clone,</div><div class="line">　　　　target = <span class="built_in">arguments</span>[<span class="number">0</span>] || &#123;&#125;,</div><div class="line">　　　　i = <span class="number">1</span>,</div><div class="line">　　　　length = <span class="built_in">arguments</span>.length,</div><div class="line">　　　　deep = <span class="literal">false</span>;</div><div class="line"></div><div class="line">　　<span class="comment">// target为第一个参数，如果第一个参数是Boolean类型的值，则把target赋值给deep</span></div><div class="line">　　<span class="comment">// deep表示是否进行深层面的复制，当为true时，进行深度复制，否则只进行第一层扩展</span></div><div class="line">　　<span class="comment">// 然后把第二个参数赋值给target</span></div><div class="line">　　<span class="keyword">if</span> ( <span class="keyword">typeof</span> target === <span class="string">"boolean"</span> ) &#123;</div><div class="line">　　　　deep = target;</div><div class="line">　　　　target = <span class="built_in">arguments</span>[<span class="number">1</span>] || &#123;&#125;;</div><div class="line"></div><div class="line">　　　　<span class="comment">// 将i赋值为2，跳过前两个参数</span></div><div class="line">　　　　i = <span class="number">2</span>;</div><div class="line">　　&#125;</div><div class="line"></div><div class="line">　　<span class="comment">// target既不是对象也不是函数则把target设置为空对象。</span></div><div class="line">　　<span class="keyword">if</span> ( <span class="keyword">typeof</span> target !== <span class="string">"object"</span> &amp;&amp; !jQuery.isFunction(target) ) &#123;</div><div class="line">　　　　target = &#123;&#125;;</div><div class="line">　　&#125;</div><div class="line"></div><div class="line">　　<span class="comment">// 如果只有一个参数，则把jQuery对象赋值给target，即扩展到jQuery对象上</span></div><div class="line">　　<span class="keyword">if</span> ( length === i ) &#123;</div><div class="line">　　　　target = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">　　　　<span class="comment">// i减1，指向被扩展对象</span></div><div class="line">　　　　--i;</div><div class="line">　　&#125;</div><div class="line"></div><div class="line">　　<span class="comment">// 开始遍历需要被扩展到target上的参数</span></div><div class="line"></div><div class="line">　　<span class="keyword">for</span> ( ; i &lt; length; i++ ) &#123;</div><div class="line">　　　　<span class="comment">// 处理第i个被扩展的对象，即除去deep和target之外的对象</span></div><div class="line">　　　　<span class="keyword">if</span> ( (options = <span class="built_in">arguments</span>[ i ]) != <span class="literal">null</span> ) &#123;</div><div class="line">　　　　　　<span class="comment">// 遍历第i个对象的所有可遍历的属性</span></div><div class="line">　　　　　　<span class="keyword">for</span> ( name <span class="keyword">in</span> options ) &#123;</div><div class="line">　　　　　　　　<span class="comment">// 根据被扩展对象的键获得目标对象相应值，并赋值给src</span></div><div class="line">　　　　　　　　src = target[ name ];</div><div class="line">　　　　　　　　<span class="comment">// 得到被扩展对象的值</span></div><div class="line">　　　　　　　　copy = options[ name ];</div><div class="line"></div><div class="line">　　　　　　　　<span class="comment">// 这里为什么是比较target和copy？不应该是比较src和copy吗？</span></div><div class="line">　　　　　　　　<span class="keyword">if</span> ( target === copy ) &#123;</div><div class="line">　　　　　　　　　　<span class="keyword">continue</span>;</div><div class="line">　　　　　　　　&#125;</div><div class="line"></div><div class="line">　　　　　　　　<span class="comment">// 当用户想要深度操作时，递归合并</span></div><div class="line">　　　　　　　　<span class="comment">// copy是纯对象或者是数组</span></div><div class="line">　　　　　　　　<span class="keyword">if</span> ( deep &amp;&amp; copy &amp;&amp; ( jQuery.isPlainObject(copy) || (copyIsArray = jQuery.isArray(copy)) ) ) &#123;</div><div class="line">　　　　　　　　　　<span class="comment">// 如果是数组</span></div><div class="line">　　　　　　　　　　<span class="keyword">if</span> ( copyIsArray ) &#123;</div><div class="line">　　　　　　　　　　　　<span class="comment">// 将copyIsArray重新设置为false，为下次遍历做准备。</span></div><div class="line">　　　　　　　　　　　　copyIsArray = <span class="literal">false</span>;</div><div class="line">　　　　　　　　　　　　<span class="comment">// 判断被扩展的对象中src是不是数组</span></div><div class="line">　　　　　　　　　　　　clone = src &amp;&amp; jQuery.isArray(src) ? src : [];</div><div class="line">　　　　　　　　　　&#125; <span class="keyword">else</span> &#123; </div><div class="line">　　　　　　　　　　　　<span class="comment">// 判断被扩展的对象中src是不是纯对象</span></div><div class="line">　　　　　　　　　　　　clone = src &amp;&amp; jQuery.isPlainObject(src) ? src : &#123;&#125;;</div><div class="line">　　　　　　　　　　&#125;</div><div class="line"></div><div class="line">　　　　　　　　　　<span class="comment">// 递归调用extend方法，继续进行深度遍历</span></div><div class="line">　　　　　　　　　　target[ name ] = jQuery.extend( deep, clone, copy );</div><div class="line"></div><div class="line">　　　　　　　　<span class="comment">// 如果不需要深度复制，则直接把copy（第i个被扩展对象中被遍历的那个键的值）</span></div><div class="line">　　　　　　　　&#125; <span class="keyword">else</span> <span class="keyword">if</span> ( copy !== <span class="literal">undefined</span> ) &#123;</div><div class="line">　　　　　　　　　　target[ name ] = copy;</div><div class="line">　　　　　　　　&#125;</div><div class="line">　　　　　　&#125;</div><div class="line">　　　　&#125;</div><div class="line">　　&#125;</div><div class="line"></div><div class="line">　　<span class="comment">// 原对象被改变，因此如果不想改变原对象，target可传入&#123;&#125;</span></div><div class="line">　　<span class="keyword">return</span> target;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h3 id="合并多个对象"><a href="#合并多个对象" class="headerlink" title="合并多个对象"></a>合并多个对象</h3><blockquote>
+<p>这里使用的就是$.extend()的嵌套多个对象的功能。 所谓嵌套多个对象，有点类似于数组的合并的操作。 但是这里是对象。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Css1=&#123;<span class="attr">size</span>: <span class="string">"10px"</span>,<span class="attr">style</span>: <span class="string">"oblique"</span>&#125;</div><div class="line"><span class="keyword">var</span> Css2=&#123;<span class="attr">size</span>: <span class="string">"12px"</span>,<span class="attr">style</span>: <span class="string">"oblique"</span>,<span class="attr">weight</span>: <span class="string">"bolder"</span>&#125;</div><div class="line">$.jQuery.extend(Css1,Css2)</div><div class="line"><span class="comment">//结果:Css1的size属性被覆盖,而且继承了Css2的weight属性</span></div><div class="line"><span class="comment">// Css1 = &#123;size: "12px",style: "oblique",weight: "bolder"&#125;</span></div></pre></td></tr></table></figure>
+<h3 id="深度嵌套对象"><a href="#深度嵌套对象" class="headerlink" title="深度嵌套对象"></a>深度嵌套对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">jQuery.extend(</div><div class="line">&#123; <span class="attr">name</span>: “John”, <span class="attr">location</span>: &#123; <span class="attr">city</span>: “Boston” &#125; &#125;,</div><div class="line">&#123; <span class="attr">last</span>: “Resig”, <span class="attr">location</span>: &#123; <span class="attr">state</span>: “MA” &#125; &#125;</div><div class="line">);</div><div class="line"><span class="comment">// 结果:</span></div><div class="line"><span class="comment">// =&gt; &#123; name: “John”, last: “Resig”, location: &#123; state: “MA” &#125; &#125;</span></div><div class="line"><span class="comment">// 新的更深入的 .extend()</span></div><div class="line">jQuery.extend( <span class="literal">true</span>,</div><div class="line">&#123; <span class="attr">name</span>: “John”, <span class="attr">location</span>: &#123; <span class="attr">city</span>: “Boston” &#125; &#125;,</div><div class="line">&#123; <span class="attr">last</span>: “Resig”, <span class="attr">location</span>: &#123; <span class="attr">state</span>: “MA” &#125; &#125;</div><div class="line">);</div><div class="line"><span class="comment">// 结果</span></div><div class="line"><span class="comment">// =&gt; &#123; name: “John”, last: “Resig”,</span></div><div class="line"><span class="comment">// location: &#123; city: “Boston”, state: “MA” &#125; &#125;</span></div></pre></td></tr></table></figure>
+<h3 id="可以给jQuery添加静态方法"><a href="#可以给jQuery添加静态方法" class="headerlink" title="可以给jQuery添加静态方法"></a>可以给jQuery添加静态方法</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"jquery.2.0.3.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">	$.extend(&#123;</div><div class="line">		<span class="attr">add</span>:<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;<span class="keyword">return</span> a+b;&#125;,</div><div class="line">		<span class="attr">minus</span>:<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;<span class="keyword">return</span> a-b&#125;,</div><div class="line">		<span class="attr">multiply</span>:<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;<span class="keyword">return</span> a*b;&#125;,</div><div class="line">		<span class="attr">divide</span>:<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;<span class="keyword">return</span> <span class="built_in">Math</span>.floor(a/b);&#125;</div><div class="line">	&#125;);</div><div class="line">	<span class="keyword">var</span> sum = $.add(<span class="number">3</span>,<span class="number">5</span>)+$.minus(<span class="number">3</span>,<span class="number">5</span>)+$.multiply(<span class="number">3</span>,<span class="number">5</span>)+$.divide(<span class="number">5</span>,<span class="number">7</span>);</div><div class="line">	<span class="built_in">console</span>.log(sum);</div><div class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/JS/">JS</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/jQuery/">jQuery</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/09/13/jQuery.extend()用法总结/" data-title="jQuery.extend()用法总结 | 夏祥云的博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/10/19/videojs的使用/" title="videojs的使用">
+  <strong>上一篇：</strong><br/>
+  <span>
+  videojs的使用</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/09/05/Bootstrap学习笔记/"  title="Bootstrap学习笔记">
+ <strong>下一篇：</strong><br/> 
+ <span>Bootstrap学习笔记
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/09/13/jQuery.extend()用法总结/" data-title="jQuery.extend()用法总结" data-url="http://yoursite.com/2016/09/13/jQuery.extend()用法总结/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#jQuery-extend-源码"><span class="toc-number">1.</span> <span class="toc-text">jQuery.extend()源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#合并多个对象"><span class="toc-number">2.</span> <span class="toc-text">合并多个对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#深度嵌套对象"><span class="toc-number">3.</span> <span class="toc-text">深度嵌套对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可以给jQuery添加静态方法"><span class="toc-number">4.</span> <span class="toc-text">可以给jQuery添加静态方法</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/H5/" title="H5">H5<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/JS/" title="JS">JS<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/工具/" title="工具">工具<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/开发/" title="开发">开发<sup>10</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/文档/" title="文档">文档<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/框架/" title="框架">框架<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/移动web/" title="移动web">移动web<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/面向对象/" title="面向对象">面向对象<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/跨域/" title="跨域">跨域<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Canvas/" title="Canvas">Canvas<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Cookies-Session/" title="Cookies&amp;Session">Cookies&amp;Session<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/angularjs/" title="angularjs">angularjs<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/requirejs/" title="requirejs">requirejs<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/shell和vi/" title="shell和vi">shell和vi<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/AJAX/" title="AJAX">AJAX<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/videojs/" title="videojs">videojs<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/懒加载/" title="懒加载">懒加载<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/regexp/" title="regexp">regexp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Bootstrap/" title="Bootstrap">Bootstrap<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/gulp/" title="gulp">gulp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/函数/" title="函数">函数<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">2</span></li></ul>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 不懂产品的设计不是好码农 <br/>
+			Where amazing happens.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="Xiangyun-Xia">Xiangyun-Xia</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"祥云"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
