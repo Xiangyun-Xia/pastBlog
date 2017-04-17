@@ -23,7 +23,7 @@ XSS 漏洞XSS (Cross-Site Scripting)，是一个我觉得耳熟能详的前端�
 
 XSS 漏洞XSS (Cross-Site Scripting)，是一个我觉得耳熟能详的前端安全问题。通过构造特殊数据，在用户浏览器上执行特定脚本，从而造成危害（如以用户身份发帖、转账等）。
 由于页面内JavaScript几乎可以完成各种事情，因此一旦网站上有 XSS 漏洞，那些没有验证码等确认措施的操作大多都能不知情地完成，其危害甚">
-<meta property="og:updated_time" content="2017-04-17T11:28:55.153Z">
+<meta property="og:updated_time" content="2017-04-17T11:30:34.909Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动web开发中常见的前端安全性问题">
 <meta name="twitter:description" content="前端安全主要表现为通过浏览器间接影响到用户数据的安全问题。
@@ -153,6 +153,7 @@ XSS 漏洞XSS (Cross-Site Scripting)，是一个我觉得耳熟能详的前端�
 <li>给所有请求加上 token 检查。token 一般是随机字符串，只需确保其不可预测性即可。token 可以在 QueryString、POST body 甚至是 Custom Header 里，但千万不能在 Cookies 里。</li>
 <li>检查 <code>referer</code> （请注意，这往往不能防御来自网站自身的 CSRF 攻击，如用户评论中的<code>&lt;img&gt;</code>就是一个常见触发点）</li>
 </ol>
+<p>参考文章：<a href="http://blog.csdn.net/fengyinchao/article/details/50775121" target="_blank" rel="external">Web 开发常见安全问题</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
