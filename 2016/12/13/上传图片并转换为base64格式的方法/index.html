@@ -1,0 +1,586 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>上传图片并转换为base64格式的方法 | 夏祥云的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Xiangyun-Xia">
+    
+
+    
+    <meta name="description" content="HTML5的File实现123456789101112131415161718192021222324252627282930313233343536373839&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; chars">
+<meta property="og:type" content="article">
+<meta property="og:title" content="上传图片并转换为base64格式的方法">
+<meta property="og:url" content="http://yoursite.com/2016/12/13/上传图片并转换为base64格式的方法/index.html">
+<meta property="og:site_name" content="夏祥云的博客">
+<meta property="og:description" content="HTML5的File实现123456789101112131415161718192021222324252627282930313233343536373839&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; chars">
+<meta property="og:updated_time" content="2017-04-19T04:28:37.703Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="上传图片并转换为base64格式的方法">
+<meta name="twitter:description" content="HTML5的File实现123456789101112131415161718192021222324252627282930313233343536373839&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;&amp;lt;head&amp;gt;    &amp;lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; chars">
+
+    
+    <link rel="alternative" href="/atom.xml" title="夏祥云的博客" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favico.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="夏祥云的博客" title="夏祥云的博客"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="夏祥云的博客">夏祥云的博客</a></h1>
+				<h2 class="blog-motto">Just For Fun ~</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/tags">标签</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+ 					
+						<form class="search" action="https://www.baidu.com/" target="_blank">
+							<label>Search</label>
+						<input name="s" type="hidden" value= null ><input type="text" name="q" size="30" placeholder="搜索"><br>
+						</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/12/13/上传图片并转换为base64格式的方法/" title="上传图片并转换为base64格式的方法" itemprop="url">上传图片并转换为base64格式的方法</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Xiangyun-Xia" target="_blank" itemprop="author">Xiangyun-Xia</a>
+		
+  <p class="article-time">
+    <time datetime="2016-12-12T16:00:00.000Z" itemprop="datePublished"> 发表于 2016-12-13</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5的File实现"><span class="toc-number">1.</span> <span class="toc-text">HTML5的File实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用ajax异步上传并转换"><span class="toc-number">2.</span> <span class="toc-text">使用ajax异步上传并转换</span></a></li></ol>
+		
+		</div>
+		
+		<h3 id="HTML5的File实现"><a href="#HTML5的File实现" class="headerlink" title="HTML5的File实现"></a>HTML5的File实现</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html; charset=utf-8"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>简单的html5 File测试 for pic2base64<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="xml"></span></div><div class="line">        window.onload = function () &#123;</div><div class="line">            var input = document.getElementById("demo_input");</div><div class="line">            var result = document.getElementById("result");</div><div class="line">            var img_area = document.getElementById("img_area");</div><div class="line">            if (typeof(FileReader) === 'undefined') &#123;</div><div class="line">                result.innerHTML = "抱歉，你的浏览器不支持 FileReader，请使用现代浏览器操作！";</div><div class="line">                input.setAttribute('disabled', 'disabled');</div><div class="line">            &#125; else &#123;</div><div class="line">                input.addEventListener('change', readFile, false);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        function readFile() &#123;</div><div class="line">            var file = this.files[0];</div><div class="line">            //这里我们判断下类型如果不是图片就返回 去掉就可以上传任意文件</div><div class="line">            if (!/image\/\w+/.test(file.type)) &#123;</div><div class="line">                alert("请确保文件为图像类型");</div><div class="line">                return false;</div><div class="line">            &#125;</div><div class="line">            var reader = new FileReader();</div><div class="line">            reader.readAsDataURL(file);</div><div class="line">            reader.onload = function (e) &#123;</div><div class="line">                result.innerHTML = '<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"' + this.result + '"</span> <span class="attr">alt</span>=<span class="string">""</span>/&gt;</span>';</div><div class="line">                img_area.innerHTML = '<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"sitetip"</span>&gt;</span>图片img标签展示：<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"' + this.result + '"</span> <span class="attr">alt</span>=<span class="string">""</span>/&gt;</span>';</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">value</span>=<span class="string">"sdgsdg"</span> <span class="attr">id</span>=<span class="string">"demo_input"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">id</span>=<span class="string">"result"</span> <span class="attr">rows</span>=<span class="string">30</span> <span class="attr">cols</span>=<span class="string">300</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">id</span>=<span class="string">"img_area"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'.image'</span>).change(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> target = $(e.target);</div><div class="line">    <span class="keyword">var</span> file;</div><div class="line">    <span class="keyword">if</span>(target[<span class="number">0</span>].files &amp;&amp; target[<span class="number">0</span>].files[<span class="number">0</span>] ) &#123;</div><div class="line">        file = target[<span class="number">0</span>].files[<span class="number">0</span>];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(file) &#123;</div><div class="line">        <span class="keyword">var</span> reader = <span class="keyword">new</span> FileReader();</div><div class="line">        reader.onload = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>)</span>&#123;</div><div class="line">            <span class="keyword">var</span> imgstr = evt.target.result; <span class="comment">//这就是base64字符串</span></div><div class="line">        &#125;;     </div><div class="line">        reader.readAsDataURL(file);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="使用ajax异步上传并转换"><a href="#使用ajax异步上传并转换" class="headerlink" title="使用ajax异步上传并转换"></a>使用ajax异步上传并转换</h3><ul>
+<li><p>ajax异步上传文件</p>
+<p>使用了jquery.form插件。该插件的原理，是创建了一个隐藏的iframe，来作为iframe提交文件的跳转地址。将form的target属性设置为该iframe，则返回结果将在iframe中显示。这个过程可以自己实现，也可以借助jquery的form插件实现。下面的代码是借助了插件。html代码如下。添加了一个按钮，用来做提交测试，也可换为其他触发方式。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"postForm"</span> <span class="attr">action</span>= <span class="string">"uploadBack.jsp"</span> <span class="attr">method</span>= <span class="string">"post"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>img:<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"img"</span> <span class="attr">name</span>=<span class="string">"img"</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">accept</span>=<span class="string">".jpg"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void(0);"</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>js代码如下。成功和失败方法可以自行定义。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'a'</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> options = &#123;</div><div class="line">        <span class="attr">dataType</span>: <span class="string">'json'</span>,</div><div class="line">        <span class="attr">success</span>: getResult,</div><div class="line">        <span class="attr">error</span>: showError</div><div class="line">    &#125;</div><div class="line">    $(<span class="string">'#postForm'</span>).ajaxSubmit(options);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>服务端接收2进制图片</p>
+<p>直接从服务端读取输入流，得到的并不是仅仅是图片流，还夹杂了其他信息。如果获取图片流，需要先将其他信息去掉。下面是代码，可以将获取的图片流输出到本地，存为一张相同的图片。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">ServletInputStream  <span class="keyword">in</span> = request.getInputStream();</div><div class="line">int result;     </div><div class="line">OutputStream out = <span class="keyword">new</span> FileOutputStream(<span class="string">"E:/TEST/2.jpg"</span>);</div><div class="line">byte[] buffer = <span class="keyword">new</span> byte[<span class="number">1024</span>];</div><div class="line">result = <span class="keyword">in</span>.readLine(buffer,<span class="number">0</span>,buffer.length); <span class="comment">//读取boundary</span></div><div class="line">result = <span class="keyword">in</span>.readLine(buffer,<span class="number">0</span>,buffer.length); <span class="comment">//读取Content-Disposition</span></div><div class="line">result = <span class="keyword">in</span>.readLine(buffer,<span class="number">0</span>,buffer.length); <span class="comment">//读取Content-Type;</span></div><div class="line">result = <span class="keyword">in</span>.readLine(buffer,<span class="number">0</span>,buffer.length); <span class="comment">//读取空行;</span></div><div class="line">int length = <span class="number">-1</span>;</div><div class="line"><span class="keyword">while</span> ((length = <span class="keyword">in</span>.read(buffer)) != <span class="number">-1</span>) &#123;</div><div class="line">    out.write(buffer, <span class="number">0</span>, length);</div><div class="line">&#125;</div><div class="line"><span class="keyword">in</span>.close();</div><div class="line">out.close();</div></pre></td></tr></table></figure>
+</li>
+<li><p>将2进制图片流转为base64格式字符串</p>
+<p>2进制流先存入byte[]数组，然后利用sun.misc.BASE64Encoder包即可转成。将流存入数组时，中途遇到没有读取完整的数据，从而使得得到的字符串不是完整的图片，后又换为循环读取，才得到视觉无损图。另外，得到的base字符串中，可能含有换行等特殊符号，保险起见，处理一下。代码如下,变量接上段代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">ByteArrayOutputStream outstream = <span class="keyword">new</span> ByteArrayOutputStream(); </div><div class="line">byte[] buff = <span class="keyword">new</span> byte[<span class="number">100</span>]; <span class="comment">//buff用于存放循环读取的临时数据 </span></div><div class="line">int rc = <span class="number">0</span>; </div><div class="line"><span class="keyword">while</span> ((rc = <span class="keyword">in</span>.read(buff, <span class="number">0</span>, <span class="number">100</span>)) &gt; <span class="number">0</span>) &#123; </div><div class="line">    outstream.write(buff, <span class="number">0</span>, rc); </div><div class="line">&#125; </div><div class="line">byte[] data = outstream.toByteArray();</div><div class="line"><span class="keyword">in</span>.close();</div><div class="line">BASE64Encoder encoder = <span class="keyword">new</span> sun.misc.BASE64Encoder();</div><div class="line"><span class="built_in">String</span> base64str = encoder.encodeBuffer(data).trim();</div><div class="line">base64str = base64str.replaceAll(<span class="string">"[\\t\\n\\r]"</span>, <span class="string">""</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>参考文章：<a href="http://www.cnblogs.com/newyear/p/6001493.html" target="_blank" rel="external">ajax异步上传图片文件并将其转换为base64格式</a>、<a href="http://www.jb51.net/html5/95473.html" target="_blank" rel="external">使用HTML5的File实现base64和图片的互转</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/H5/">H5</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/base64/">base64</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2016/12/13/上传图片并转换为base64格式的方法/" data-title="上传图片并转换为base64格式的方法 | 夏祥云的博客" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/12/22/ES6常用特性/" title="ES6常用特性">
+  <strong>上一篇：</strong><br/>
+  <span>
+  ES6常用特性</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/10/19/videojs的使用/"  title="videojs的使用">
+ <strong>下一篇：</strong><br/> 
+ <span>videojs的使用
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/12/13/上传图片并转换为base64格式的方法/" data-title="上传图片并转换为base64格式的方法" data-url="http://yoursite.com/2016/12/13/上传图片并转换为base64格式的方法/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5的File实现"><span class="toc-number">1.</span> <span class="toc-text">HTML5的File实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用ajax异步上传并转换"><span class="toc-number">2.</span> <span class="toc-text">使用ajax异步上传并转换</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/H5/" title="H5">H5<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/JS/" title="JS">JS<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/工具/" title="工具">工具<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/开发/" title="开发">开发<sup>11</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/文档/" title="文档">文档<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/框架/" title="框架">框架<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/移动web/" title="移动web">移动web<sup>3</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/面向对象/" title="面向对象">面向对象<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Canvas/" title="Canvas">Canvas<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Cookies-Session/" title="Cookies&amp;Session">Cookies&amp;Session<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/angularjs/" title="angularjs">angularjs<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/requirejs/" title="requirejs">requirejs<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/shell和vi/" title="shell和vi">shell和vi<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/跨域/" title="跨域">跨域<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/videojs/" title="videojs">videojs<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/AJAX/" title="AJAX">AJAX<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/懒加载/" title="懒加载">懒加载<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/regexp/" title="regexp">regexp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Bootstrap/" title="Bootstrap">Bootstrap<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/gulp/" title="gulp">gulp<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/函数/" title="函数">函数<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">2</span></li></ul>
+  </div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 不懂产品的设计不是好码农 <br/>
+			Where amazing happens.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="Xiangyun-Xia">Xiangyun-Xia</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"祥云"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
