@@ -189,6 +189,29 @@ http://api.example.com/detail.html
   
 <section class="post" itemscope itemprop="blogitem">
   
+    <a href="/2016/06/13/双等号引起的类型转换过程 /" title="双等号比较时的类型转换总结" itemprop="url">
+  
+    <h1 itemprop="name">双等号比较时的类型转换总结</h1>
+    
+     
+           <p itemprop="description" >首先看双等号前后有没有NaN，如果存在NaN，一律返回false。
+再看双等号前后有没有布尔，有布尔就将布尔转换为数字。（false是0，true是1） 
+接着看双等号前后有没有字符串, 有以下情况： 
+对方是对象，对象使用toString()或者valueOf()进行转换；  </p>
+        
+    
+    <time datetime="2016-06-12T16:00:00.000Z" itemprop="datePublished">2016-06-13</time>
+  </a>
+</section>
+
+
+
+
+
+
+  
+<section class="post" itemscope itemprop="blogitem">
+  
     <a href="/2016/06/09/HTTP学习总结/" title="HTTP学习总结" itemprop="url">
   
     <h1 itemprop="name">HTTP学习总结</h1>
@@ -325,32 +348,6 @@ Funciton也是一个函数。
 
 
 
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2016/03/27/面向对象基础/" title="面向对象基础" itemprop="url">
-  
-    <h1 itemprop="name">面向对象基础</h1>
-    
-     
-           <p itemprop="description" >面向对象概述什么是对象
-所谓的对象就是某种事物，万物皆对象。
-用程序的方式描述对象：属性+行为。
-
-对象创建方式
-字面量：各种数据类型的字面量表示。
-12345var obj1 = &amp;#123;	username : &#39;张三&#39;,	age : 12,	gender : &#39;male&#39;</p>
-        
-    
-    <time datetime="2016-03-26T16:00:00.000Z" itemprop="datePublished">2016-03-27</time>
-  </a>
-</section>
-
-
-
-
-
-
 
   <nav id="page-nav" class="clearfix unexpand">
     <a class="extend prev" rel="prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next<span></span></a>
@@ -380,7 +377,7 @@ Funciton也是一个函数。
 		  
 		
 		  
-			<li><a href="/categories/JS/" title="JS">JS<sup>3</sup></a></li>
+			<li><a href="/categories/JS/" title="JS">JS<sup>4</sup></a></li>
 		  
 		
 		  
@@ -499,7 +496,7 @@ Funciton也是一个函数。
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">十二月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">八月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">2</span></li></ul>
   </div>
 
 

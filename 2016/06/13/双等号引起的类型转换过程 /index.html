@@ -4,23 +4,56 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>垂直居中问题 | 夏祥云的博客</title>
+    <title>双等号比较时的类型转换总结 | 夏祥云的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Xiangyun-Xia">
     
 
     
-    <meta name="description" content="用CSS实现元素的垂直居中已知元素的宽高12345678910#div1&amp;#123;	background-color:red;	width:200px;	height:200px;	position: absolute;        //父元素需要相对定位	top: 50%;	left: 50%;	margin-top:-100px;        //二分之一的height，width	ma">
+    <meta name="description" content="首先看双等号前后有没有NaN，如果存在NaN，一律返回false。
+再看双等号前后有没有布尔，有布尔就将布尔转换为数字。（false是0，true是1） 
+接着看双等号前后有没有字符串, 有以下情况： 
+对方是对象，对象使用toString()或者valueOf()进行转换；  
+对方是数字，字符串转数字；（前面已经举例）  
+对方是字符串，直接比较；  
+其他返回false  
+
+
+
+
+如果是">
 <meta property="og:type" content="article">
-<meta property="og:title" content="垂直居中问题">
-<meta property="og:url" content="http://yoursite.com/2015/12/07/垂直居中问题/index.html">
+<meta property="og:title" content="双等号比较时的类型转换总结">
+<meta property="og:url" content="http://yoursite.com/2016/06/13/双等号引起的类型转换过程 /index.html">
 <meta property="og:site_name" content="夏祥云的博客">
-<meta property="og:description" content="用CSS实现元素的垂直居中已知元素的宽高12345678910#div1&amp;#123;	background-color:red;	width:200px;	height:200px;	position: absolute;        //父元素需要相对定位	top: 50%;	left: 50%;	margin-top:-100px;        //二分之一的height，width	ma">
-<meta property="og:updated_time" content="2017-04-15T03:37:41.696Z">
+<meta property="og:description" content="首先看双等号前后有没有NaN，如果存在NaN，一律返回false。
+再看双等号前后有没有布尔，有布尔就将布尔转换为数字。（false是0，true是1） 
+接着看双等号前后有没有字符串, 有以下情况： 
+对方是对象，对象使用toString()或者valueOf()进行转换；  
+对方是数字，字符串转数字；（前面已经举例）  
+对方是字符串，直接比较；  
+其他返回false  
+
+
+
+
+如果是">
+<meta property="og:updated_time" content="2017-04-20T01:39:11.354Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="垂直居中问题">
-<meta name="twitter:description" content="用CSS实现元素的垂直居中已知元素的宽高12345678910#div1&amp;#123;	background-color:red;	width:200px;	height:200px;	position: absolute;        //父元素需要相对定位	top: 50%;	left: 50%;	margin-top:-100px;        //二分之一的height，width	ma">
+<meta name="twitter:title" content="双等号比较时的类型转换总结">
+<meta name="twitter:description" content="首先看双等号前后有没有NaN，如果存在NaN，一律返回false。
+再看双等号前后有没有布尔，有布尔就将布尔转换为数字。（false是0，true是1） 
+接着看双等号前后有没有字符串, 有以下情况： 
+对方是对象，对象使用toString()或者valueOf()进行转换；  
+对方是数字，字符串转数字；（前面已经举例）  
+对方是字符串，直接比较；  
+其他返回false  
+
+
+
+
+如果是">
 
     
     <link rel="alternative" href="/atom.xml" title="夏祥云的博客" type="application/atom+xml">
@@ -81,14 +114,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/12/07/垂直居中问题/" title="垂直居中问题" itemprop="url">垂直居中问题</a>
+      <a href="/2016/06/13/双等号引起的类型转换过程 /" title="双等号比较时的类型转换总结" itemprop="url">双等号比较时的类型转换总结</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Xiangyun-Xia" target="_blank" itemprop="author">Xiangyun-Xia</a>
 		
   <p class="article-time">
-    <time datetime="2015-12-06T16:00:00.000Z" itemprop="datePublished"> 发表于 2015-12-07</time>
+    <time datetime="2016-06-12T16:00:00.000Z" itemprop="datePublished"> 发表于 2016-06-13</time>
     
   </p>
 </header>
@@ -97,13 +130,27 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#用CSS实现元素的垂直居中"><span class="toc-number">1.</span> <span class="toc-text">用CSS实现元素的垂直居中</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#已知元素的宽高"><span class="toc-number">1.1.</span> <span class="toc-text">已知元素的宽高</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#未知元素的宽高"><span class="toc-number">1.2.</span> <span class="toc-text">未知元素的宽高</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何垂直居中一个-lt-img-gt"><span class="toc-number">2.</span> <span class="toc-text">如何垂直居中一个<img></span></a></li></ol>
+			
 		
 		</div>
 		
-		<h3 id="用CSS实现元素的垂直居中"><a href="#用CSS实现元素的垂直居中" class="headerlink" title="用CSS实现元素的垂直居中"></a>用CSS实现元素的垂直居中</h3><h4 id="已知元素的宽高"><a href="#已知元素的宽高" class="headerlink" title="已知元素的宽高"></a>已知元素的宽高</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#div1&#123;</div><div class="line">	background-color:red;</div><div class="line">	width:200px;</div><div class="line">	height:200px;</div><div class="line">	position: absolute;        //父元素需要相对定位</div><div class="line">	top: 50%;</div><div class="line">	left: 50%;</div><div class="line">	margin-top:-100px;        //二分之一的height，width</div><div class="line">	margin-left: -100px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="未知元素的宽高"><a href="#未知元素的宽高" class="headerlink" title="未知元素的宽高"></a>未知元素的宽高</h4><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#div1&#123;</div><div class="line">	width: 200px;</div><div class="line">	height: 200px;</div><div class="line">	background-color: red;</div><div class="line"></div><div class="line">	margin:auto;</div><div class="line">	position: absolute; //父元素需要相对定位</div><div class="line">	left: 0;</div><div class="line">	top: 0;</div><div class="line">	right: 0;</div><div class="line">	bottom: 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="如何垂直居中一个-lt-img-gt"><a href="#如何垂直居中一个-lt-img-gt" class="headerlink" title="如何垂直居中一个&lt;img&gt;"></a>如何垂直居中一个<code>&lt;img&gt;</code></h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//&lt;img&gt;的容器设置如下</div><div class="line">#container &#123;</div><div class="line">	display:table-cell;</div><div class="line">	text-align:center;</div><div class="line">	vertical-align:middle;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+		<ul>
+<li>首先看双等号前后有没有NaN，如果存在NaN，一律返回false。</li>
+<li>再看双等号前后有没有布尔，有布尔就将布尔转换为数字。（false是0，true是1） </li>
+<li>接着看双等号前后有没有字符串, 有以下情况： <ol>
+<li>对方是对象，对象使用toString()或者valueOf()进行转换；  </li>
+<li>对方是数字，字符串转数字；（前面已经举例）  </li>
+<li>对方是字符串，直接比较；  </li>
+<li>其他返回false  </li>
+</ol>
+</li>
+</ul>
+<ul>
+<li><p>如果是数字，对方是对象，对象取valueOf()或者toString()进行比较, 其他一律返回false </p>
+</li>
+<li><p>null, undefined不会进行类型转换, 但它们俩相等。</p>
+</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -111,13 +158,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/CSS/">CSS</a>
+  <a class="article-category-link" href="/categories/JS/">JS</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/CSS/">CSS</a>
+  <span></span> <a href="/tags//">==</a>
   </div>
 
 </div>
@@ -126,7 +173,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2015/12/07/垂直居中问题/" data-title="垂直居中问题 | 夏祥云的博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2016/06/13/双等号引起的类型转换过程 /" data-title="双等号比较时的类型转换总结 | 夏祥云的博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -140,18 +187,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/12/17/实现图片懒加载的两种方式/" title="实现图片懒加载的两种方式">
+ <a href="/2016/06/18/AJAX编程/" title="AJAX编程">
   <strong>上一篇：</strong><br/>
   <span>
-  实现图片懒加载的两种方式</span>
+  AJAX编程</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2015/11/28/CSS3学习笔记/"  title="CSS3学习笔记">
+<a href="/2016/06/09/HTTP学习总结/"  title="HTTP学习总结">
  <strong>下一篇：</strong><br/> 
- <span>CSS3学习笔记
+ <span>HTTP学习总结
 </span>
 </a>
 </div>
@@ -160,7 +207,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2015/12/07/垂直居中问题/" data-title="垂直居中问题" data-url="http://yoursite.com/2015/12/07/垂直居中问题/"></div>
+	<div class="ds-thread" data-thread-key="2016/06/13/双等号引起的类型转换过程 /" data-title="双等号比较时的类型转换总结" data-url="http://yoursite.com/2016/06/13/双等号引起的类型转换过程 /"></div>
 </section>
 
 
@@ -170,7 +217,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#用CSS实现元素的垂直居中"><span class="toc-number">1.</span> <span class="toc-text">用CSS实现元素的垂直居中</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#已知元素的宽高"><span class="toc-number">1.1.</span> <span class="toc-text">已知元素的宽高</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#未知元素的宽高"><span class="toc-number">1.2.</span> <span class="toc-text">未知元素的宽高</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何垂直居中一个-lt-img-gt"><span class="toc-number">2.</span> <span class="toc-text">如何垂直居中一个<img></span></a></li></ol>
+ 
  
   </div>
 
