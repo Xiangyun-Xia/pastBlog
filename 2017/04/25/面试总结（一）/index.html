@@ -4,29 +4,32 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>bind方法的实现 | 夏祥云的博客</title>
+    <title>面试总结（一） | 夏祥云的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Xiangyun-Xia">
     
 
     
-    <meta name="description" content="bind()函数是在ECMA第五版才被加入；它可能无法在所有浏览器上运行。这就需要我们自己实现bind()函数了。
-首先我们可以通过给目标函数指定作用域来简单实现bind()方法：
-123456Function.prototype.bind = function(context)&amp;#123;  self = this;  //保存this，即调用bind方法的目标函数  return functi">
+    <meta name="description" content="不记得之前是在哪看到了这样的一句话：你现在每多学一样本领，将来就能少说一句求人的话。结合这几天的面试经历来看，确实如此。
+这些天一共面试了三家公司，华风创新、清研讯科和百度。
+在此也想默默感谢一下百度的面试官，两个半小时时间里，让我真真切切的体会到了什么叫“低调而有货”，也让我看清了自己的不足，学到了很多的知识。
+华风创新这是我面试的第一家公司，就坐落在中国气象局内，和女朋友学习的地方仅百米有余，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="bind方法的实现">
-<meta property="og:url" content="http://yoursite.com/2016/09/25/bind方法的实现/index.html">
+<meta property="og:title" content="面试总结（一）">
+<meta property="og:url" content="http://yoursite.com/2017/04/25/面试总结（一）/index.html">
 <meta property="og:site_name" content="夏祥云的博客">
-<meta property="og:description" content="bind()函数是在ECMA第五版才被加入；它可能无法在所有浏览器上运行。这就需要我们自己实现bind()函数了。
-首先我们可以通过给目标函数指定作用域来简单实现bind()方法：
-123456Function.prototype.bind = function(context)&amp;#123;  self = this;  //保存this，即调用bind方法的目标函数  return functi">
-<meta property="og:updated_time" content="2017-04-20T03:51:49.030Z">
+<meta property="og:description" content="不记得之前是在哪看到了这样的一句话：你现在每多学一样本领，将来就能少说一句求人的话。结合这几天的面试经历来看，确实如此。
+这些天一共面试了三家公司，华风创新、清研讯科和百度。
+在此也想默默感谢一下百度的面试官，两个半小时时间里，让我真真切切的体会到了什么叫“低调而有货”，也让我看清了自己的不足，学到了很多的知识。
+华风创新这是我面试的第一家公司，就坐落在中国气象局内，和女朋友学习的地方仅百米有余，">
+<meta property="og:updated_time" content="2017-04-26T08:18:04.513Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="bind方法的实现">
-<meta name="twitter:description" content="bind()函数是在ECMA第五版才被加入；它可能无法在所有浏览器上运行。这就需要我们自己实现bind()函数了。
-首先我们可以通过给目标函数指定作用域来简单实现bind()方法：
-123456Function.prototype.bind = function(context)&amp;#123;  self = this;  //保存this，即调用bind方法的目标函数  return functi">
+<meta name="twitter:title" content="面试总结（一）">
+<meta name="twitter:description" content="不记得之前是在哪看到了这样的一句话：你现在每多学一样本领，将来就能少说一句求人的话。结合这几天的面试经历来看，确实如此。
+这些天一共面试了三家公司，华风创新、清研讯科和百度。
+在此也想默默感谢一下百度的面试官，两个半小时时间里，让我真真切切的体会到了什么叫“低调而有货”，也让我看清了自己的不足，学到了很多的知识。
+华风创新这是我面试的第一家公司，就坐落在中国气象局内，和女朋友学习的地方仅百米有余，">
 
     
     <link rel="alternative" href="/atom.xml" title="夏祥云的博客" type="application/atom+xml">
@@ -87,14 +90,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/09/25/bind方法的实现/" title="bind方法的实现" itemprop="url">bind方法的实现</a>
+      <a href="/2017/04/25/面试总结（一）/" title="面试总结（一）" itemprop="url">面试总结（一）</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Xiangyun-Xia" target="_blank" itemprop="author">Xiangyun-Xia</a>
 		
   <p class="article-time">
-    <time datetime="2016-09-24T16:00:00.000Z" itemprop="datePublished"> 发表于 2016-09-25</time>
+    <time datetime="2017-04-24T16:00:00.000Z" itemprop="datePublished"> 发表于 2017-04-25</time>
     
   </p>
 </header>
@@ -103,22 +106,34 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#华风创新"><span class="toc-number">1.</span> <span class="toc-text">华风创新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#清研讯科"><span class="toc-number">2.</span> <span class="toc-text">清研讯科</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#百度"><span class="toc-number">3.</span> <span class="toc-text">百度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
 		
 		</div>
 		
-		<p>bind()函数是在ECMA第五版才被加入；它可能无法在所有浏览器上运行。这就需要我们自己实现bind()函数了。</p>
-<p>首先我们可以通过给目标函数指定作用域来简单实现bind()方法：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>)</span>&#123;</div><div class="line">  self = <span class="keyword">this</span>;  <span class="comment">//保存this，即调用bind方法的目标函数</span></div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="keyword">return</span> self.apply(context,<span class="built_in">arguments</span>);</div><div class="line">  &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>考虑到函数柯里化的情况，我们可以构建一个更加健壮的bind()：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>),</div><div class="line">  self = <span class="keyword">this</span>;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="keyword">var</span> innerArgs = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</div><div class="line">      <span class="keyword">var</span> finalArgs = args.concat(innerArgs);</div><div class="line">      <span class="keyword">return</span> self.apply(context,finalArgs);</div><div class="line">  &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>这次的bind()方法可以绑定对象，也支持在绑定的时候传参。</p>
-<p>继续，Javascript的函数还可以作为构造函数，那么绑定后的函数用这种方式调用时，情况就比较微妙了，需要涉及到原型链的传递：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span>(<span class="params">context</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice(<span class="built_in">arguments</span>, <span class="number">1</span>),</div><div class="line">  F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;,</div><div class="line">  self = <span class="keyword">this</span>,</div><div class="line">  bound = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="keyword">var</span> innerArgs = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</div><div class="line">      <span class="keyword">var</span> finalArgs = args.concat(innerArgs);</div><div class="line">      <span class="keyword">return</span> self.apply((<span class="keyword">this</span> <span class="keyword">instanceof</span> F ? <span class="keyword">this</span> : context), finalArgs);</div><div class="line">  &#125;;</div><div class="line">  F.prototype = self.prototype;</div><div class="line">  bound.prototype = <span class="keyword">new</span> F();</div><div class="line">  retrun bound;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>这是《JavaScript Web Application》一书中对bind()的实现：通过设置一个中转构造函数F，使绑定后的函数与调用bind()的函数处于同一原型链上，用new操作符调用绑定后的函数，返回的对象也能正常使用instanceof，因此这是最严谨的bind()实现。</p>
-<p>对于为了在浏览器中能支持bind()函数，只需要对上述函数稍微修改即可：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span> (<span class="params">oThis</span>) </span>&#123;</div><div class="line"><span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span> !== <span class="string">"function"</span>) &#123;</div><div class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">"Function.prototype.bind - what is trying to be bound is not callable"</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> aArgs = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>), </div><div class="line">    fToBind = <span class="keyword">this</span>, </div><div class="line">    fNOP = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;,</div><div class="line">    fBound = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> fToBind.apply(</div><div class="line">          <span class="keyword">this</span> <span class="keyword">instanceof</span> fNOP &amp;&amp; oThis ? <span class="keyword">this</span> : oThis || <span class="built_in">window</span>,</div><div class="line">          aArgs.concat(<span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>))</div><div class="line">      );</div><div class="line">    &#125;;</div><div class="line">	fNOP.prototype = <span class="keyword">this</span>.prototype;</div><div class="line">	fBound.prototype = <span class="keyword">new</span> fNOP();</div><div class="line">	<span class="keyword">return</span> fBound;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>参考文章：<a href="https://segmentfault.com/a/1190000002662251" target="_blank" rel="external">Javascript中bind()方法的使用与实现</a></p>
+		<p>不记得之前是在哪看到了这样的一句话：<strong>你现在每多学一样本领，将来就能少说一句求人的话。</strong>结合这几天的面试经历来看，确实如此。</p>
+<p>这些天一共面试了三家公司，<strong>华风创新</strong>、<strong>清研讯科</strong>和<strong>百度</strong>。</p>
+<p>在此也想默默感谢一下<strong>百度</strong>的面试官，两个半小时时间里，让我真真切切的体会到了什么叫“<strong>低调而有货</strong>”，也让我看清了自己的不足，学到了很多的知识。</p>
+<h4 id="华风创新"><a href="#华风创新" class="headerlink" title="华风创新"></a>华风创新</h4><p>这是我面试的第一家公司，就坐落在中国气象局内，和女朋友学习的地方仅百米有余，也算是最符合我来北京初衷的一家公司吧。公司隶属于国家气象局，运营着自己的几个产品，均是利用新媒体向大众提供气象服务的。</p>
+<p>整个面试过程比较愉快，先是HR简单登记了一下我的个人情况和期望薪资，接着就给了一份笔试题让我做。题目整体来说比较简单，都是一些基础知识，涉及了原型链、闭包、Ajax、H5等方面。做题的中途来了两位技术面试官换走了HR，我的题还没有做完，他们就先在旁边看着我的简历。</p>
+<p>做完题后，一位面试官检查我的试卷，另一位面试官就让我简单介绍一下自己以及简单介绍一下之前的项目。在基本了解清楚之后，就开始针对各个知识点进行提问，问的问题也都不算难。在交流的过程中了解了他们公司不限技术之后，我就更有信心了，毕竟如果要重新再学一个vue或者react还是需要一定的时间的。后来又了解了他们主要是想做一个微信公众号的开发，虽然之前没有做过类似的项目，但根据自己所了解的做一个公众号开发并不难，因此很肯定的回复到自己能胜任工作。</p>
+<p>最后又简单的聊了一些过后，一位面试官告诉我这轮面试就先到此为止，两个星期之内通知我进行第二轮面试。</p>
+<p>这一家无论是地理位置、工作环境还是工作内容自己都十分满意，期待自己在二面中能有良好的表现。</p>
+<h4 id="清研讯科"><a href="#清研讯科" class="headerlink" title="清研讯科"></a>清研讯科</h4><p>这是一家做室内定位的公司，经营着一款自己的产品。主要是解决在北斗定位无效的封闭环境内的定位问题，感觉是个很有前景的公司。起初收到该公司面试邮件的时候得知地点是在中太大厦，结果下了公交按照地图指引走了挺久也没见大厦，最后在地图终点附近问了一下路人才知道旁边的没有标牌的6层建筑就是我要找的目的地。带着一丝疑虑和好奇，我走进了这栋楼。</p>
+<p>上了二楼，找到了清研讯科的门牌，进去一看：两长排面对面的电脑前，一个个专注的工作的身影，着实让我的心为之一颤，较暗的光线下密集的办公环境让我感到有些压抑。在和前台小姐姐简单交流过后，她给了我一张面试登记表和一份试题，让我填好之后交给她。</p>
+<p>题目属于正常的面试题，考的都是前端的基础知识，做完之后交给了前台小姐姐，她去交给面试官。</p>
+<p>第一位面试官是一位干练的男子，在简单寒暄的几句之后得知我和他都是江西人，本以为接下来的面试会在“老乡见老乡，两眼泪汪汪”的气氛中进行，没想到的是，他接连几个angular的原理层问题把我给问慌了，一下子脑袋空白，以至于连后边的“jQuery伪类选择器有哪些”这个问题都想了半天…后来面试官还问我最进读了哪些书，想到自己书架上买的一大堆书很多都没怎么看，真的很惭愧，也不知道怎么开口。感觉这次面的很不理想，在交流了大概半个小时之后，他说让另一位面试官来和我聊聊。</p>
+<p>第二位面试官是一位十分友善的人，始终面带微笑，没有上一位面试官那种咄咄逼人的压迫感，和他交流起来我也感到更加舒适。他在简单问了我几个问题之后给我介绍了一下他们的团队和工作情况，并且询问了我的期望薪资。在得知他们这每周必须工作6天之后，我将我的最低要求定在了13K。虽然我面的不太好，但我觉得以他们的工作量要这个薪水并不算太过分，而且我也有信心通过后期的学习跟上他们的工作进度。</p>
+<p>最后面试官告诉我说今天人事不在，让我回去等消息。</p>
+<p>感觉这一家是没什么希望了，不过这次面试也给自己提了个醒：少买书，多看书！平时多学点工作的时候才能少翻点资料…</p>
+<h4 id="百度"><a href="#百度" class="headerlink" title="百度"></a>百度</h4><p>没想到自己能收到百度的面试邀请，作为互联网三大巨头之一，百度在我心中的地位不言而喻，虽然现在它已经落后于阿里和腾讯不少了，但在我这种小公司的小人物眼中还是高大上的存在。</p>
+<p>早早的就赶到了面试地点——百度大厦K2楼，在外边拍了好几张照片作为留念，希望未来能有机会在这里工作。</p>
+<p>进门马上就有安保人员上来寻问来由，然后被告知面试的话先在一旁休息区等候，到时间会有面试官来接。坐在软软的沙发上，看着高大玻璃窗外的天空，听着耳边的老铁用流利的英文和老外交流着，感觉自己就像乡巴佬进城一样，哈哈哈。</p>
+<p>到了时间面试官领着我去前台登记，进了面试区后依旧是先做一份笔试题。这个笔试题相较于之前做的那些要难上不少，大约过了一个小时左右吧，面试官来了，我还在写最后一道编程题，面试官告诉我编程题只要说思路就可以了。</p>
+<p>然后面试官就针对笔试题开始提问，从第一题开始，一题一题的问，每一处细节如何实现的都要我讲出来或者写出来。如果题目答的没有问题，便会就这个知识点引申出其他的问题，或是假设工作中的一些具体场景，让我提供解决方案。碰到我答不上来的，面试官就会细心的给我讲解，直到我表示听懂为止。除去笔试时间，整个面试过程持续了一个半小时，没有问其他有的没的，全部是针对前端的知识进行提问和讲解。</p>
+<p>虽然最终没能通过面试，但这一次真的是不虚此行，不仅学到了知识，也让我见识了大公司里谦虚低调的大牛。真的很感谢这位面试官，临走前还送我出门，我一直在向他道谢，他始终都是谦逊有礼貌。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>革命尚未成功，同志仍需努力。本以为跳槽之路会比较轻松，没想到也是充满了艰辛，哈哈。</p>
+<p>还得继续学习。</p>
+<p>面试也还会继续。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -126,13 +141,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/JS/">JS</a>
+  <a class="article-category-link" href="/categories/随笔/">随笔</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/bind/">bind</a>
+  <span></span> <a href="/tags/面试/">面试</a>
   </div>
 
 </div>
@@ -141,7 +156,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/09/25/bind方法的实现/" data-title="bind方法的实现 | 夏祥云的博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/04/25/面试总结（一）/" data-title="面试总结（一） | 夏祥云的博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -154,19 +169,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/10/09/网站前端网页优化的14条原则（雅虎十四条）/" title="网站前端网页优化的14条原则（雅虎十四条）">
-  <strong>上一篇：</strong><br/>
-  <span>
-  网站前端网页优化的14条原则（雅虎十四条）</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/09/17/移动web开发中常见的安全性问题/"  title="移动web开发中常见的前端安全性问题">
+<a href="/2016/12/28/angularjs学习笔记/"  title="angularjs学习笔记">
  <strong>下一篇：</strong><br/> 
- <span>移动web开发中常见的前端安全性问题
+ <span>angularjs学习笔记
 </span>
 </a>
 </div>
@@ -175,7 +182,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/09/25/bind方法的实现/" data-title="bind方法的实现" data-url="http://yoursite.com/2016/09/25/bind方法的实现/"></div>
+	<div class="ds-thread" data-thread-key="2017/04/25/面试总结（一）/" data-title="面试总结（一）" data-url="http://yoursite.com/2017/04/25/面试总结（一）/"></div>
 </section>
 
 
@@ -185,7 +192,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#华风创新"><span class="toc-number">1.</span> <span class="toc-text">华风创新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#清研讯科"><span class="toc-number">2.</span> <span class="toc-text">清研讯科</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#百度"><span class="toc-number">3.</span> <span class="toc-text">百度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
  
   </div>
 
