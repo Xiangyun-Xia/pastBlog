@@ -4,32 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>shell和vi | 夏祥云的博客</title>
+    <title>JS中的indexOf方法 | 夏祥云的博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Xiangyun-Xia">
     
 
     
-    <meta name="description" content="什么是shell在计算机科学中，Shell俗称壳，用来区别于Kernel（核），是指”提供使用者使用界面”的软件（命令解析器）。它类似于DOS下的command和后来的cmd.exe。它接收用户命令，然后调用相应的应用程序。
-shell分类
-图形界面shell：通过提供友好的可视化界面，调用相应应用程序，如windows系列操作系统，Linux系统上的图形化应用程序GNOME、KDE等。
-命令行s">
+    <meta name="description" content="今天在写项目的过程中写了这样一段代码：
+
+12345678910111213141516//判断是否是第一次请求数据以及数据是否有更新if (allObj.length == 1440 &amp;amp;&amp;amp; list_all_last != allObj[allObj.length - 1]) &amp;#123;	var allObj_new = [];	for (var jj = 0; jj &amp;lt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="shell和vi">
-<meta property="og:url" content="http://yoursite.com/2016/01/08/shell和vi/index.html">
+<meta property="og:title" content="JS中的indexOf方法">
+<meta property="og:url" content="http://yoursite.com/2017/06/13/JS中的indexOf方法/index.html">
 <meta property="og:site_name" content="夏祥云的博客">
-<meta property="og:description" content="什么是shell在计算机科学中，Shell俗称壳，用来区别于Kernel（核），是指”提供使用者使用界面”的软件（命令解析器）。它类似于DOS下的command和后来的cmd.exe。它接收用户命令，然后调用相应的应用程序。
-shell分类
-图形界面shell：通过提供友好的可视化界面，调用相应应用程序，如windows系列操作系统，Linux系统上的图形化应用程序GNOME、KDE等。
-命令行s">
-<meta property="og:updated_time" content="2017-04-15T07:01:56.504Z">
+<meta property="og:description" content="今天在写项目的过程中写了这样一段代码：
+
+12345678910111213141516//判断是否是第一次请求数据以及数据是否有更新if (allObj.length == 1440 &amp;amp;&amp;amp; list_all_last != allObj[allObj.length - 1]) &amp;#123;	var allObj_new = [];	for (var jj = 0; jj &amp;lt">
+<meta property="og:updated_time" content="2017-06-13T13:33:35.167Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shell和vi">
-<meta name="twitter:description" content="什么是shell在计算机科学中，Shell俗称壳，用来区别于Kernel（核），是指”提供使用者使用界面”的软件（命令解析器）。它类似于DOS下的command和后来的cmd.exe。它接收用户命令，然后调用相应的应用程序。
-shell分类
-图形界面shell：通过提供友好的可视化界面，调用相应应用程序，如windows系列操作系统，Linux系统上的图形化应用程序GNOME、KDE等。
-命令行s">
+<meta name="twitter:title" content="JS中的indexOf方法">
+<meta name="twitter:description" content="今天在写项目的过程中写了这样一段代码：
+
+12345678910111213141516//判断是否是第一次请求数据以及数据是否有更新if (allObj.length == 1440 &amp;amp;&amp;amp; list_all_last != allObj[allObj.length - 1]) &amp;#123;	var allObj_new = [];	for (var jj = 0; jj &amp;lt">
 
     
     <link rel="alternative" href="/atom.xml" title="夏祥云的博客" type="application/atom+xml">
@@ -90,14 +87,14 @@ shell分类
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/01/08/shell和vi/" title="shell和vi" itemprop="url">shell和vi</a>
+      <a href="/2017/06/13/JS中的indexOf方法/" title="JS中的indexOf方法" itemprop="url">JS中的indexOf方法</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Xiangyun-Xia" target="_blank" itemprop="author">Xiangyun-Xia</a>
 		
   <p class="article-time">
-    <time datetime="2016-01-07T16:00:00.000Z" itemprop="datePublished"> 发表于 2016-01-08</time>
+    <time datetime="2017-06-12T16:00:00.000Z" itemprop="datePublished"> 发表于 2017-06-13</time>
     
   </p>
 </header>
@@ -106,90 +103,46 @@ shell分类
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是shell"><span class="toc-number">1.</span> <span class="toc-text">什么是shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shell分类"><span class="toc-number">2.</span> <span class="toc-text">shell分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#认识bash这个shell"><span class="toc-number">3.</span> <span class="toc-text">认识bash这个shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vi编辑器"><span class="toc-number">4.</span> <span class="toc-text">vi编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH"><span class="toc-number">5.</span> <span class="toc-text">SSH</span></a></li></ol>
+			
 		
 		</div>
 		
-		<h3 id="什么是shell"><a href="#什么是shell" class="headerlink" title="什么是shell"></a>什么是shell</h3><p>在计算机科学中，Shell俗称壳，用来区别于Kernel（核），是指”提供使用者使用界面”的软件（命令解析器）。它类似于DOS下的command和后来的cmd.exe。它接收用户命令，然后调用相应的应用程序。</p>
-<h3 id="shell分类"><a href="#shell分类" class="headerlink" title="shell分类"></a>shell分类</h3><ol>
-<li>图形界面shell：通过提供友好的可视化界面，调用相应应用程序，如windows系列操作系统，Linux系统上的图形化应用程序GNOME、KDE等。</li>
-<li>命令行shell：通过键盘输入特定命令的方式，调用相应的应用程序，如windows系统的cmd.exe、Windows PowerShell，Linux系统的Bourne shell ( sh)、Bourne Again shell ( bash)等。</li>
-</ol>
-<h3 id="认识bash这个shell"><a href="#认识bash这个shell" class="headerlink" title="认识bash这个shell"></a>认识bash这个shell</h3><p>在window系统下使用bash，需要一个软件，这个软件模拟集成了bash大部分命令。</p>
-<p>各个 shell 的功能都差不多， Linux 默认使用 bash ，所以我们主要学习bash的使用。</p>
-<ol>
-<li>bash命令格式<ul>
-<li>命令 [-options][参数]，如：tar  zxvf  demo.tar.gz</li>
-<li>查看帮助：命令 –help</li>
-</ul>
-</li>
-<li><strong>bash常见命令</strong>：<ul>
-<li>pwd (Print Working Directory) 查看当前目录</li>
-<li>cd (Change Directory) 切换目录，如 cd /etc</li>
-<li>ls (List) 查看当前目录下内容，如 ls -al</li>
-<li>mkdir (Make Directory) 创建目录，如 mkdir blog</li>
-<li>touch 创建文件，如 touch index.html</li>
-<li>cat 查看文件全部内容，如 cat index.html</li>
-<li>less 查看文件，如more /etc/passwd、less /etc/passwd</li>
-<li>rm (remove) 删除文件，如 rm index.html、rm -rf  blog</li>
-<li>rmdir (Remove Directory) 删除文件夹，只能删除空文件夹，不常用</li>
-<li>mv (move) 移动文件或重命名，如 mv index.html ./demo/index.html</li>
-<li>cp (copy) 复制文件，cp index.html ./demo/index.html</li>
-<li>tab 自动补全，连按两次会将所有匹配内容显示出来</li>
-<li><code>&gt;</code>和<code>&gt;&gt;</code>重定向，如<code>echo hello world! &gt; README.md</code>，<code>&gt;</code>覆盖、<code>&gt;&gt;</code>追加</li>
-<li>| 管道符可以将多个命令连接使用，上一次（命令）的执行结果当成下一次（命令）的参数。</li>
-<li>grep 匹配内容，一般结合管道符使用</li>
-</ul>
-</li>
-</ol>
-<h3 id="vi编辑器"><a href="#vi编辑器" class="headerlink" title="vi编辑器"></a>vi编辑器</h3><p>如同Windows下的记事本，vi编辑器是Linux下的标配，通过它我们可以创建、编辑文件。它是一个随系统一起安装的文本编辑软件。</p>
-<ol>
-<li><p>三种模式</p>
+		<blockquote>
+<p>今天在写项目的过程中写了这样一段代码：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//判断是否是第一次请求数据以及数据是否有更新</span></div><div class="line"><span class="keyword">if</span> (allObj.length == <span class="number">1440</span> &amp;&amp; list_all_last != allObj[allObj.length - <span class="number">1</span>]) &#123;</div><div class="line">	<span class="keyword">var</span> allObj_new = [];</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> jj = <span class="number">0</span>; jj &lt; results.jsonObjectList.length; jj++) &#123;</div><div class="line">		<span class="keyword">var</span> list_all_new = results.jsonObjectList[jj];</div><div class="line">		<span class="keyword">var</span> allObjTime_new = list_all_new.time.substring(<span class="number">5</span>);</div><div class="line">		<span class="keyword">var</span> allObjValue_new = list_all_new.totalCnt;</div><div class="line">		allObj_new.push(&#123;</div><div class="line">			<span class="comment">// name: now.toString(),</span></div><div class="line">			value: [allObjTime_new, allObjValue_new]</div><div class="line">		&#125;)</div><div class="line">	&#125;</div><div class="line">	<span class="built_in">console</span>.log(allObj_new);</div><div class="line">	<span class="comment">//找到更新的位置</span></div><div class="line">	<span class="keyword">var</span> index = allObj_new.indexOf(allObj[allObj.length - <span class="number">1</span>]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>结果发现index的值始终等于-1，而按照正常的业务逻辑是不应该出现这种情况的，于是我仔细查找了一下indexOf的用法，总结如下。</p>
+</blockquote>
 <ul>
-<li>vi编辑器提供了3种模式，分别是命令模式、插入模式、底行模式，每种模式下用户所能进行的操作是不一样的。</li>
-<li>输入模式是不能直接切换到末行模式的，必须要先切回到命令模式（按ESC键）</li>
-</ul>
+<li><p>String 类型的使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> str = <span class="string">'orange'</span>;</div><div class="line"> </div><div class="line">str.indexOf(<span class="string">'o'</span>); <span class="comment">//0</span></div><div class="line">str.indexOf(<span class="string">'n'</span>); <span class="comment">//3</span></div><div class="line">str.indexOf(<span class="string">'c'</span>); <span class="comment">//-1</span></div></pre></td></tr></table></figure>
+<p>这里 0 和 3 分别是 o 和 n 在字符串中出现的位置。起始下标是 0。而 -1 代表未匹配。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> numStr = <span class="string">'2016'</span>;</div><div class="line"> </div><div class="line">numStr.indexOf(<span class="string">'2'</span>); <span class="comment">//0</span></div><div class="line">numStr.indexOf(<span class="number">2</span>); <span class="comment">//0</span></div></pre></td></tr></table></figure>
+<p>可以发现 indexOf 会做简单的类型转换，把数字转换成字符串 ‘2’ 然后再执行。</p>
 </li>
-<li><p>使用vi/vim编辑器</p>
-<p>a) 打开/创建文件， vi 文件路径</p>
-<p>b) 底行模式 :w保存，:w filenme另存为</p>
-<p>c) 底行模式 :q退出</p>
-<p>d) 底行模式 :wq保存并退出</p>
-<p>e) 底行模式 :e! 撤销更改，返回到上一次保存的状态</p>
-<p>f) 底行模式 :q! 不保存强制退出</p>
-<p>g) 底行模式 :set nu 设置行号</p>
-<p>h) 命令模式 ZZ（大写）保存并退出</p>
-<p>i) 命令模式 u辙销操作，可多次使用</p>
-<p>j) 命令模式 dd删除当前行</p>
-<p>k) 命令模式 yy复制当前行</p>
-<p>l) 命令模式 p 粘贴内容</p>
-<p>m) 命令模式 ctrl+f向前翻页</p>
-<p>n) 命令模式 ctrl+b向后翻页</p>
-<p>o) 命令模式 i进入编辑模式，当前光标处插入</p>
-<p>p) 命令模式 a进入编辑模式，当前光标后插入</p>
-<p>q) 命令模式 A进入编辑模式，光标移动到行尾</p>
-<p>r) 命令模式 o进入编辑模式，当前行下面插入新行</p>
-<p>s) 命令模式 O进入编辑模式，当前行上面插入新行</p>
-<p>当我们处在编辑模式的情况下，和我们在Windows编辑器的使用相似。</p>
+<li><p>Number 类型的使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> num = <span class="number">2016</span>;</div><div class="line"> </div><div class="line">num.indexOf(<span class="number">2</span>); <span class="comment">//Uncaught TypeError: num.indexOf is not a function</span></div></pre></td></tr></table></figure>
+<p>number类型有没有 indexOf 方法，因为不会进行隐式转换，如果要使用，需要把number类型转化为string类型。</p>
 </li>
-</ol>
-<h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><p>SSH是一种网络协议，用于计算机之间的加密登录。</p>
-<p>SSH只是一种协议，存在多种实现，既有商业实现，也有开源实现。本文针对的是<a href="http://www.openssh.com/" target="_blank" rel="external">OpenSSH</a>，它是自由软件，应用非常广泛。</p>
-<p>如果要在Windows系统中使用SSH，会用到另一种软件<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty" target="_blank" rel="external">PuTTY</a>，我们后面用到的Git客户也集成了SSH</p>
-<p>格式：ssh user@host</p>
-<p>user 代表真实存在的用户host代表要登录的远程计算机</p>
-<p>常见有两种加密技术，分别是对称性加密和非对称性加密，SSH属于后者。</p>
-<p>对称加密<a href="http://baike.baidu.com/view/7420.htm" target="_blank" rel="external">算法</a>在加密和解密时使用的是同一个密钥；而<a href="http://baike.baidu.com/view/1490349.htm" target="_blank" rel="external">非对称加密算法</a>需要两个<a href="http://baike.baidu.com/view/934.htm" target="_blank" rel="external">密钥</a>来进行加密和解密，这两个秘钥分别是<a href="http://baike.baidu.com/view/1145160.htm" target="_blank" rel="external">公开密钥</a>（public key，简称公钥）和私有密钥（private key，简称私钥）。</p>
-<p>工作原理</p>
-<p>公钥和私钥是成对出现，可以通过ssh-keygen -t rsa来创建，既可以通过密钥来加密数据，也可以通过私钥来加密数据，如果是以公钥进行的数据加密，只能与之相对应的私钥才可以解密，相反如果以私钥进行的数据加密，则只能与之对应的公钥才可以将数据进行解密，这样就可以提高信息传递的安全性。</p>
-<p>免密码登录（待定）</p>
-<p>我们可以将本地机器上的公钥保存到特定的远程计算机上，这样当我们再次登录访问这台远程计算机时就可以实现免密码登录了。</p>
+<li><p>Array 类型的使用</p>
+<p>这个便是我今天所碰到的问题了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> arr = [<span class="string">'orange'</span>, <span class="string">'2016'</span>, <span class="string">'2016'</span>];</div><div class="line"> </div><div class="line">arr.indexOf(<span class="string">'orange'</span>); <span class="comment">//0</span></div><div class="line">arr.indexOf(<span class="string">'o'</span>); <span class="comment">//-1</span></div><div class="line"> </div><div class="line">arr.indexOf(<span class="string">'2016'</span>); <span class="comment">//1</span></div><div class="line">arr.indexOf(<span class="number">2016</span>); <span class="comment">//-1</span></div></pre></td></tr></table></figure>
+<p>以上四个用例足以说明问题。</p>
 <ol>
-<li>ssh-keygen -t rsa会创建公钥和密钥（默认在用户目录/.ssh目录下）</li>
-<li>ssh-copy-id user@host添加到对应远程主机的用户目录/.ssh目录下</li>
-<li>也可以登录远程主机，进入到用户目录/.ssh目录下手动创建authorized_keys文件，并将自已的公钥粘入该文件。</li>
+<li><code>arr.indexOf(&#39;orange&#39;)</code>输出 0 因为 ‘orange’ 是数组的第 0 个元素，匹配到并返回下标。</li>
+<li><code>arr.indexOf(&#39;o&#39;)</code> 输出 -1 因为此方法不会在每一个元素的基础上再次执行 indexOf 匹配。</li>
+<li><code>arr.indexOf(&#39;2016&#39;)</code> 输出 1 因为此方法从头匹配直到匹配到时返回第一个数组元素的下表，而不是返回全部匹配的下标。</li>
+<li><code>arr.indexOf(2016)</code>输出 -1 注意：这里不会做隐式类型转换。</li>
 </ol>
-<p>这部分具体实现细节，参照我的演示有个印象就可以了。 </p>
+<p>而在我今天的问题中，之所以始终返回-1，是因为我判断对象是否存在于数组中，而对象存储在堆中，它指向堆中的一块内存地址，所以除非内存地址指向相同，否则比较出来都返回-1。</p>
+</li>
+<li><p>原生js实现indexOf方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.prototype.indexOf = <span class="function"><span class="keyword">function</span>(<span class="params">b</span>) </span>&#123;</div><div class="line">        <span class="comment">//参数校验</span></div><div class="line">        <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.toString.call(b) !== <span class="string">'[object Array]'</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'array expected'</span>);</div><div class="line">        <span class="comment">//b的长度比本数组长度长了就直接返回</span></div><div class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.length &lt; b.length) <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">var</span> index = <span class="number">0</span>, <span class="comment">//本数组游标</span></div><div class="line">            i = <span class="number">0</span>,</div><div class="line">            len = b.length;</div><div class="line">        <span class="keyword">while</span> (index &lt; <span class="keyword">this</span>.length) &#123;</div><div class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.length - index &lt; b.length) <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">            <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; ++i) &#123;</div><div class="line">                <span class="keyword">if</span> (<span class="keyword">this</span>[index + i] !== b[i]) <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (i === b.length) <span class="keyword">return</span> index;</div><div class="line">            index++;</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+</ul>
+<p>参考文章：<a href="http://www.jb51.net/article/94627.htm" target="_blank" rel="external">简单谈谈JS数组中的indexOf方法</a>、<a href="http://www.cnblogs.com/dhygzh/p/5397562.html" target="_blank" rel="external">js中实现数组的indexOf方法</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -197,13 +150,13 @@ shell分类
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/工具/">工具</a>
+  <a class="article-category-link" href="/categories/JS/">JS</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/shell和vi/">shell和vi</a>
+  <span></span> <a href="/tags/indexOf/">indexOf</a>
   </div>
 
 </div>
@@ -212,7 +165,7 @@ shell分类
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2016/01/08/shell和vi/" data-title="shell和vi | 夏祥云的博客" data-tsina="null" class="share clearfix">
+	  <div data-url="http://yoursite.com/2017/06/13/JS中的indexOf方法/" data-title="JS中的indexOf方法 | 夏祥云的博客" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -225,19 +178,11 @@ shell分类
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/01/10/git学习笔记/" title="git学习笔记">
-  <strong>上一篇：</strong><br/>
-  <span>
-  git学习笔记</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2015/12/18/WEB前端开发规范文档/"  title="WEB前端开发规范文档">
+<a href="/2017/05/16/ng-options用法/"  title="ng-options用法学习">
  <strong>下一篇：</strong><br/> 
- <span>WEB前端开发规范文档
+ <span>ng-options用法学习
 </span>
 </a>
 </div>
@@ -246,7 +191,7 @@ shell分类
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/01/08/shell和vi/" data-title="shell和vi" data-url="http://yoursite.com/2016/01/08/shell和vi/"></div>
+	<div class="ds-thread" data-thread-key="2017/06/13/JS中的indexOf方法/" data-title="JS中的indexOf方法" data-url="http://yoursite.com/2017/06/13/JS中的indexOf方法/"></div>
 </section>
 
 
@@ -256,7 +201,7 @@ shell分类
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是shell"><span class="toc-number">1.</span> <span class="toc-text">什么是shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shell分类"><span class="toc-number">2.</span> <span class="toc-text">shell分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#认识bash这个shell"><span class="toc-number">3.</span> <span class="toc-text">认识bash这个shell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vi编辑器"><span class="toc-number">4.</span> <span class="toc-text">vi编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH"><span class="toc-number">5.</span> <span class="toc-text">SSH</span></a></li></ol>
+ 
  
   </div>
 
